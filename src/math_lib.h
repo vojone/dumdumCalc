@@ -22,7 +22,7 @@
 extern double add(double num1, double num2);
 
 /**
- * @brief Arithmetical subtraction of two doubles
+ * @brief Arithmetical subtraction of two doubles (num1 - num2)
  * @param num1 minuend
  * @param num2 subtrahend
  * @return difference of num1 and num2
