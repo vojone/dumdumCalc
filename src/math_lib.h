@@ -1,12 +1,20 @@
 /******************************************************************************
  *                            dumdumCalculator       
- *                            @file math_lib.h
- *         @brief Header file of mathematical library for calculator
+ *                               math_lib.h
  * 
- *      @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                            @date 9. 3. 2021
+ *       Description: Header file of mathematical library for calculator
+ * 
+ *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ *                       Last change: 12. 3. 2021
  *   
  * ***************************************************************************/
+
+/**
+ * @file math_lib.h
+ * 
+ * @brief Header file for mathematical library used in calculator
+ * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ */
 
 #ifndef __MATH_LIB__
 #define __MATH_LIB__
@@ -45,4 +53,6 @@ extern double mult(double num1, double num2);
  */
 extern double div(double num1, double num2);
 
-#endif
+#endif //__MATH_LIB__
+
+/***                            End of math_lib.h                          ***/
