@@ -12,10 +12,17 @@
 /**
  * @file math_libtest.h
  * 
- * @brief TDD test for mathematical library, which is used in Calculator
+ * @brief TDD test for mathematical library, which is used in calculator
  * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
  */
 
 #include "math_lib.h"
+#include "gtest/gtest.h"
+
+int main(int argc, char *argv[]) {
+  ::testing::InitGoogleTest(&argc, argv);
+
+  return RUN_ALL_TESTS();
+}
 
 /***                        End of math_libtest.cpp                        ***/
