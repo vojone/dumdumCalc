@@ -1,2 +1,7 @@
-#ingore libs
-*.a
+#ignore everything in build folder
+src/build/
+
+#ignore .o files
+*.o
+
+*.pdf
