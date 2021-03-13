@@ -25,7 +25,7 @@
  * @return result of addition
  */
 double add(const double num1, const double num2) {
-  return 0.0;
+  return 0;
 }
 
 /**
@@ -63,7 +63,7 @@ double div(const double num1, const double num2) {
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-long int fact(const int num) {
+long int fact(const unsigned int num) {
   return 0;
 }
 
