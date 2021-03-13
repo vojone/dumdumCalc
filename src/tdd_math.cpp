@@ -34,24 +34,19 @@ class smallPositiveDoubles : public ::testing::Test {
     {123.75, 123.75}};
 };
 
-class greatPositiveDoubles : public ::testing::Test {
-  protected:
-    std::vector<std::vector<double>> values = 
-    {{123456789.0, 1.0}, 
-    {4294967295.1, 4294967295.0}, 
-    {4294967295.0, 4294967295.1},
-    {123456789.123456789, 123456789.987654321}, 
-    {9223372036854775807.75, 123456.5}};
-};
-
 class allDoubles : public ::testing::Test {
   protected:
-    std::vector<std::vector<double>> values = 
+    std::vector<std::vector<double>> values =
     {{-100.0, -125.4}, 
     {-4294967295.1, 4294967295.0}, 
     {-789.1, -120.0},
     {123456789.123456789, -123456789.987654321}, 
-    {-9223372036854775807.75, -123456.5}};
+    {-9223372036854775807.75, -123456.5}, 
+    {123456789.0, 1.0}, 
+    {4294967295.1, 4294967295.0}, 
+    {4294967295.0, -4294967295.1},
+    {123456789.123456789, 123456789.987654321}, 
+    {9223372036854775807.75, 123456.5}};
 };
 
 class integers : public ::testing::Test {
@@ -66,8 +61,44 @@ class integers : public ::testing::Test {
     {-3, -7},
     {8, 4294967295},
     {123456789, 123456789},
-    {9223372036854775807, 1}};
+    {100000000000000000, 1}};
 };
+
+/***                             ADD TESTS                                 ***/
+TEST_F(smallPositiveDoubles, addition) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 + num2, add(num1, num2));
+  }
+}
+
+TEST_F(allDoubles, addition) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 + num2, add(num1, num2));
+  }
+}
+
+
+/***                             SUB TESTS                                 ***/
+TEST_F(smallPositiveDoubles, subtraction) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 - num2, sub(num1, num2));
+  }
+}
+
+TEST_F(allDoubles, subtraction) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 - num2, sub(num1, num2));
+  }
+}
+
+
+
+
+
 
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
