@@ -37,7 +37,7 @@ class smallPositiveDoubles : public ::testing::Test {
 class allDoubles : public ::testing::Test {
   protected:
     std::vector<std::vector<double>> values =
-    {{-100.0, -125.4}, 
+    {{0.0, -125.4}, 
     {-4294967295.1, 4294967295.0}, 
     {-789.1, -120.0},
     {123456789.123456789, -123456789.987654321}, 
@@ -47,21 +47,6 @@ class allDoubles : public ::testing::Test {
     {4294967295.0, -4294967295.1},
     {123456789.123456789, 123456789.987654321}, 
     {9223372036854775807.75, 123456.5}};
-};
-
-class integers : public ::testing::Test {
-  protected:
-    std::vector<std::vector<long long int>> values = 
-    {{1, 4}, 
-    {123456789, 4567}, 
-    {123456789, 0}, 
-    {-8, 2},
-    {789, -1},
-    {-5, 6},
-    {-3, -7},
-    {8, 4294967295},
-    {123456789, 123456789},
-    {100000000000000000, 1}};
 };
 
 /***                             ADD TESTS                                 ***/
@@ -97,6 +82,55 @@ TEST_F(allDoubles, subtraction) {
 
 
 
+/***                            MULT TESTS                                 ***/
+TEST_F(smallPositiveDoubles, multiplication) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 * num2, mult(num1, num2));
+  }
+}
+
+TEST_F(allDoubles, multiplication) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1 * num2, mult(num1, num2));
+  }
+}
+
+
+
+/***                            DIV TESTS                                 ***/
+TEST_F(smallPositiveDoubles, division) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1/num2, div(num1, num2));
+  }
+}
+
+TEST_F(allDoubles, division) {
+  for(size_t i = 0; i < values.size(); i++) {
+    double num1 = values[i][0], num2 = values[i][1];
+    ASSERT_DOUBLE_EQ(num1/num2, div(num1, num2));
+  }
+}
+
+TEST(errHandling, division) {
+  ASSERT_ANY_THROW(div(1.0, 0.0));
+  ASSERT_ANY_THROW(div(0.0, 0.0));
+  ASSERT_ANY_THROW(div(100.0, 0.0));
+}
+
+
+
+/***                            FABS TESTS                                 ***/
+TEST_F(allDoubles, absVal) {
+  for(size_t i = 0; i < values.size(); i++) {
+    for(size_t u = 0; u < values[i].size(); u++) {
+      double num = values[i][u];
+      ASSERT_DOUBLE_EQ(num, num < 0 ? -num : num);
+    }
+  }
+}
 
 
 
