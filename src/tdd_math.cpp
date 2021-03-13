@@ -19,6 +19,9 @@
 #include "math_lib.h"
 #include "gtest/gtest.h"
 
+/**
+ * A set of testing values (small positive doubles) 
+ */
 class smallPositiveDoubles : public ::testing::Test {
   protected:
     std::vector<std::vector<double>> values = 
@@ -34,6 +37,9 @@ class smallPositiveDoubles : public ::testing::Test {
     {123.75, 123.75}};
 };
 
+/**
+ * A set of testing values (mix of doubles) 
+ */
 class allDoubles : public ::testing::Test {
   protected:
     std::vector<std::vector<double>> values =
@@ -127,10 +133,80 @@ TEST_F(allDoubles, absVal) {
   for(size_t i = 0; i < values.size(); i++) {
     for(size_t u = 0; u < values[i].size(); u++) {
       double num = values[i][u];
-      ASSERT_DOUBLE_EQ(num, num < 0 ? -num : num);
+      ASSERT_DOUBLE_EQ(fabs(num), num < 0 ? -num : num);
     }
   }
 }
+
+/***                            FACT TESTS                                 ***/
+TEST(factorialTests, smallPositiveIntegers) {
+  std::vector<std::vector<long long int>> values = {
+    {0, 1},
+    {1, 1},
+    {3, 6},
+    {10, 3628800},
+    {25, 6227020800},
+  };
+
+  for(size_t i = 0; i < values.size(); i++) {
+    ASSERT_EQ(fact(values[i][0]), values[i][1]);
+  }
+}
+
+TEST(errHandling, fact) {
+  ASSERT_ANY_THROW(fact(-10));
+  ASSERT_ANY_THROW(fact(-50));
+
+  ASSERT_ANY_THROW(fact(1000));
+}
+
+
+
+/***                             POW TESTS                                 ***/
+TEST(smallPositiveDoubles, pow) {
+  std::vector<std::vector<double>> values = {
+    {0.0, 1, 0.0},
+    {1.0, 0, 0.0},
+    {2.0, 2, 4.0},
+    {-3.0, 4, -81.0},
+    {8.5, 7, 3205770.883},
+  };
+
+  for(size_t i = 0; i < values.size(); i++) {
+    ASSERT_EQ(pow(values[i][0], (int)values[i][1]), values[i][2]);
+  }
+}
+
+TEST(errHandling, pow) {
+  ASSERT_ANY_THROW(pow(0.0, 0));
+  ASSERT_ANY_THROW(pow(-7, -8));
+
+  ASSERT_ANY_THROW(pow(123456789.0, 100));
+}
+
+
+
+/***                             ROOT TESTS                                 ***/
+TEST(smallPositiveDoubles, root) {
+  std::vector<std::vector<double>> values = {
+    {0.0, 1, 0.0},
+    {9, 1, 0.0},
+    {2.0, 2, 1.0},
+    {256, 4, 4.0},
+    {27.0, 3, 3.0},
+  };
+
+  for(size_t i = 0; i < values.size(); i++) {
+    ASSERT_EQ(root(values[i][0], (int)values[i][1]), values[i][2]);
+  }
+}
+
+TEST(errHandling, root) {
+  ASSERT_ANY_THROW(pow(0.0, 0));
+  ASSERT_ANY_THROW(pow(-7, -8));
+  ASSERT_ANY_THROW(pow(0.0, -7));
+}
+
 
 
 
