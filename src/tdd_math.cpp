@@ -5,7 +5,7 @@
  *  Decription: TDD test for mathematical library, which is used in Calculator
  * 
  *      Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                        Last change: 13. 3. 2021
+ *                        Last change: 19. 3. 2021
  * 
  * ***************************************************************************/
 
@@ -163,7 +163,7 @@ TEST(errHandling, fact) {
 
 
 /***                             POW TESTS                                 ***/
-TEST(smallPositiveDoubles, pow) {
+TEST(smallPositiveDoublesPow, pow) {
   std::vector<std::vector<double>> values = {
     {0.0, 1, 0.0},
     {1.0, 0, 0.0},
@@ -187,7 +187,7 @@ TEST(errHandling, pow) {
 
 
 /***                             ROOT TESTS                                 ***/
-TEST(smallPositiveDoubles, root) {
+TEST(smallPositiveDoublesRoot, root) {
   std::vector<std::vector<double>> values = {
     {0.0, 1, 0.0},
     {9, 1, 0.0},
