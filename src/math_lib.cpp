@@ -71,7 +71,7 @@ double div(const double num1, const double num2) {
  * @return factorial numbers from parameter
  */
 long int fact(const unsigned int num) {
-	if(num < 0) { // Only works up to 20, then it overflows
+	if(num < 0 || num > 20) { // Only works up to 20, then it overflows
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
 	
