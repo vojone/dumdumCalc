@@ -79,7 +79,7 @@ extern double root(const double base, const unsigned int exp);
  * @param num number from which is calculated the absolute value
  * @return absolute value of number 
  */
-extern double fabs(const double num);
+extern double f_absol(const double num);
 
 #endif //__MATH_LIB__
 

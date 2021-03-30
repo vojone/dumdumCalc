@@ -17,6 +17,8 @@
  */
 
 #include "math_lib.h"
+#include <math.h>
+#include <stdexcept>
 
 /**
  * @brief Arithmetic addition of two doubles
@@ -25,7 +27,7 @@
  * @return result of addition
  */
 double add(const double num1, const double num2) {
-  return 0;
+  return num1 + num2;
 }
 
 /**
@@ -35,7 +37,7 @@ double add(const double num1, const double num2) {
  * @return difference of num1 and num2
  */
 double sub(const double num1, const double num2) {
-  return 0.0;
+  return num1 - num2;
 }
 
 /**
@@ -45,7 +47,7 @@ double sub(const double num1, const double num2) {
  * @return result of multiplication
  */
 double mult(const double num1, const double num2) {
-  return 0.0;
+  return num1 * num2;
 }
 
 /**
@@ -55,7 +57,12 @@ double mult(const double num1, const double num2) {
  * @return result of division
  */
 double div(const double num1, const double num2) {
-  return 0.0;
+	if(num1 == 0 || num2 == 0) {
+		throw std::runtime_error("Error, Not Defined");	
+	}
+	else {
+		return num1 / num2;
+	}
 }
 
 /**
@@ -64,7 +71,19 @@ double div(const double num1, const double num2) {
  * @return factorial numbers from parameter
  */
 long int fact(const unsigned int num) {
-  return 0;
+	if(num < 0) { // Only works up to 20, then it overflows
+		throw std::runtime_error("Error, Only Positive Numbers");
+	}
+	
+	if(num > 1){
+		return num * fact(num - 1);
+	}
+	else if (num == 1 || num == 0){
+		return 1;
+	}
+	else{
+		return 0;
+	}
 }
 
 /**
@@ -74,7 +93,12 @@ long int fact(const unsigned int num) {
  * @return result of exponentiation
  */
 double pow(const double base, const unsigned int exp) {
-  return 0.0;
+	if(base < 0 || exp < 0) {
+		throw std::runtime_error("Error, Only Positive Numbers");	
+	}
+	else {
+		return pow(base, exp);
+	}
 }
 
 /**
@@ -84,7 +108,19 @@ double pow(const double base, const unsigned int exp) {
  * @return root of number in argument
  */
 double root(const double base, const unsigned int exp) {
-  return 0.0;
+  if((base < 0 && exp % 2 == 0) || exp < 0) {
+		throw std::runtime_error("Error, Only Positive Numbers");	
+	}
+	else {
+		double exp_dbl = exp;
+		
+		if(base < 0 && (exp % 2) == 1){
+			return -pow(-base, 1/exp_dbl);
+		}
+		else {
+			return pow(base, 1/exp_dbl);
+		}
+	}
 }
 
 /**
@@ -92,8 +128,13 @@ double root(const double base, const unsigned int exp) {
  * @param num number from which is calculated the absolute value
  * @return absolute value of number 
  */
-double fabs(const double num) {
-  return 0.0;
+double f_absol(const double num) {
+	if(num < 0) {
+		return -num;
+	}
+	else {
+		return num;
+	}
 }
 
 /***                          End of math_lib.cpp                          ***/
