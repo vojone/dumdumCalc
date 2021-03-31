@@ -5,9 +5,6 @@ TEST_BIN = tdd_math
 #output path
 O_PATH = build/
 
-MATH_LIB_NAME := $(O_PATH)$(MATH_LIB_NAME)
-TEST_BIN := $(O_PATH)$(TEST_BIN)
-
 #testing framework path
 TESTLIB_NAME = libgtest
 TEST_DIR = googletest-master/googletest/
@@ -24,8 +21,8 @@ pack:
 clean:
 	rm -f $(O_PATH)*
 
-test: $(O_PATH) $(TEST_BIN)
-	./$(TEST_BIN)
+test: $(O_PATH) $(O_PATH)$(TEST_BIN)
+	./$(O_PATH)$(TEST_BIN)
 
 doc:
 
@@ -37,11 +34,11 @@ profile:
 #----------------------------TEST COMPILATION----------------------------------
 
 #linking binary with test
-$(TEST_BIN) : $(TEST_BIN).o $(MATH_LIB_NAME).o
+$(O_PATH)$(TEST_BIN) : $(O_PATH)$(TEST_BIN).o $(O_PATH)$(MATH_LIB_NAME).o
 	$(CXX) -o $@ $^ -L$(TEST_DIR)lib -lgtest -lpthread
 
 #compilation of obj file with test
-$(TEST_BIN).o : $(notdir $(TEST_BIN).cpp) $(TEST_DIR)lib/$(TESTLIB_NAME).a
+$(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
 	$(CXX) $(CXXFLAGS) -c -o $@ $< -I$(TEST_DIR)include
 
 #compilation of the lib (.a) with google test (if it is not compilated)
@@ -49,7 +46,8 @@ $(TEST_BIN).o : $(notdir $(TEST_BIN).cpp) $(TEST_DIR)lib/$(TESTLIB_NAME).a
 $(TEST_DIR)lib/%.a :
 	cd $(TEST_DIR) && cmake .. && make -s
 
-$(O_PATH)%.o : $(notdir %.cpp)
+#ALL obj files need math_lib header file
+$(O_PATH)%.o : %.cpp $(MATH_LIB_NAME).h
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(O_PATH) : 
