@@ -166,14 +166,16 @@ TEST(errHandling, fact) {
 TEST(smallPositiveDoublesPow, f_pow) {
   std::vector<std::vector<double>> values = {
     {0.0, 1, 0.0},
-    {1.0, 0, 0.0},
+    {1.0, 0, 1.0},
     {2.0, 2, 4.0},
-    {-3.0, 4, -81.0},
-    {8.5, 7, 3205770.883},
+    {-3.0, 4, 81.0},
+    {3.0, 7, 2187.0},
+    {2.2, 3, 10.648},
+    {1.2, 2, 1.44}
   };
 
   for(size_t i = 0; i < values.size(); i++) {
-    ASSERT_EQ(f_pow(values[i][0], (int)values[i][1]), values[i][2]);
+    ASSERT_DOUBLE_EQ(f_pow(values[i][0], (int)values[i][1]), values[i][2]);
   }
 }
 
@@ -190,14 +192,16 @@ TEST(errHandling, f_pow) {
 TEST(smallPositiveDoublesRoot, root) {
   std::vector<std::vector<double>> values = {
     {0.0, 1, 0.0},
-    {9, 1, 0.0},
-    {2.0, 2, 1.0},
+    {9, 1, 9.0},
+    {4.0, 2, 2.0},
     {256, 4, 4.0},
     {27.0, 3, 3.0},
+    {100000, 5, 10.0},
+    {1.21, 2, 1.1}
   };
 
   for(size_t i = 0; i < values.size(); i++) {
-    ASSERT_EQ(root(values[i][0], (int)values[i][1]), values[i][2]);
+    ASSERT_DOUBLE_EQ(root(values[i][0], (int)values[i][1]), values[i][2]);
   }
 }
 

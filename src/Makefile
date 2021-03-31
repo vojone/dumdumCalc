@@ -13,6 +13,9 @@ TEST_DIR = googletest-master/googletest/
 CXX = g++
 CXXFLAGS = -Werror -Wall -pedantic -std=c++11
 
+CC = g++
+LDLIBS=-lm
+
 .PHONY: all pack clean test doc run profile
 all:
 
@@ -35,7 +38,7 @@ profile:
 
 #linking binary with test
 $(O_PATH)$(TEST_BIN) : $(O_PATH)$(TEST_BIN).o $(O_PATH)$(MATH_LIB_NAME).o
-	$(CXX) -o $@ $^ -L$(TEST_DIR)lib -lgtest -lpthread
+	$(CC) -o $@ $^ -L$(TEST_DIR)lib -lgtest -lpthread $(LDLIBS)
 
 #compilation of obj file with test
 $(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
