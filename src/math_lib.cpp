@@ -5,7 +5,7 @@
  *       Purpose: Implementation of mathematical library used in calculator
  * 
  *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                       Last change: 13. 3. 2021
+ *                       Last change: 31. 3. 2021
  *   
  * ***************************************************************************/
 
@@ -57,7 +57,7 @@ double mult(const double num1, const double num2) {
  * @return result of division
  */
 double div(const double num1, const double num2) {
-	if(num1 == 0 || num2 == 0) {
+	if(num2 == 0) {
 		throw std::runtime_error("Error, Not Defined");	
 	}
 	else {
@@ -70,7 +70,7 @@ double div(const double num1, const double num2) {
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-long int fact(const unsigned int num) {
+long long unsigned int fact(const int num) {
 	if(num < 0 || num > 20) { // Only works up to 20, then it overflows
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
@@ -92,10 +92,16 @@ long int fact(const unsigned int num) {
  * @param exp natural exponent
  * @return result of exponentiation
  */
-double pow(const double base, const unsigned int exp) {
-	if(base < 0 || exp < 0) {
+double f_pow(const double base, const int exp) {
+	if(exp < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");	
 	}
+  else if(exp == 0 && base == 0.0) {
+    throw std::runtime_error("Error, Unspecific Expression");	
+  }
+  else if(exp == 0) {
+    return 1.0;
+  }
 	else {
 		return pow(base, exp);
 	}
@@ -107,7 +113,7 @@ double pow(const double base, const unsigned int exp) {
  * @param exp natural number which specifies the root
  * @return root of number in argument
  */
-double root(const double base, const unsigned int exp) {
+double root(const double base, const int exp) {
   if((base < 0 && exp % 2 == 0) || exp < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");	
 	}

@@ -5,7 +5,7 @@
  *  Decription: TDD test for mathematical library, which is used in Calculator
  * 
  *      Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                        Last change: 19. 3. 2021
+ *                        Last change: 31. 3. 2021
  * 
  * ***************************************************************************/
 
@@ -140,7 +140,7 @@ TEST_F(allDoubles, absVal) {
 
 /***                            FACT TESTS                                 ***/
 TEST(factorialTests, smallPositiveIntegers) {
-  std::vector<std::vector<long long int>> values = {
+  std::vector<std::vector<long long unsigned int>> values = {
     {0, 1},
     {1, 1},
     {3, 6},
@@ -163,7 +163,7 @@ TEST(errHandling, fact) {
 
 
 /***                             POW TESTS                                 ***/
-TEST(smallPositiveDoublesPow, pow) {
+TEST(smallPositiveDoublesPow, f_pow) {
   std::vector<std::vector<double>> values = {
     {0.0, 1, 0.0},
     {1.0, 0, 0.0},
@@ -173,15 +173,15 @@ TEST(smallPositiveDoublesPow, pow) {
   };
 
   for(size_t i = 0; i < values.size(); i++) {
-    ASSERT_EQ(pow(values[i][0], (int)values[i][1]), values[i][2]);
+    ASSERT_EQ(f_pow(values[i][0], (int)values[i][1]), values[i][2]);
   }
 }
 
-TEST(errHandling, pow) {
-  ASSERT_ANY_THROW(pow(0.0, 0));
-  ASSERT_ANY_THROW(pow(-7, -8));
+TEST(errHandling, f_pow) {
+  ASSERT_ANY_THROW(f_pow(0.0, 0));
+  ASSERT_ANY_THROW(f_pow(-7, -8));
 
-  ASSERT_ANY_THROW(pow(123456789.0, 100));
+  ASSERT_ANY_THROW(f_pow(123456789.0, 100));
 }
 
 
@@ -202,9 +202,9 @@ TEST(smallPositiveDoublesRoot, root) {
 }
 
 TEST(errHandling, root) {
-  ASSERT_ANY_THROW(pow(0.0, 0));
-  ASSERT_ANY_THROW(pow(-7, -8));
-  ASSERT_ANY_THROW(pow(0.0, -7));
+  ASSERT_ANY_THROW(f_pow(0.0, 0));
+  ASSERT_ANY_THROW(f_pow(-7, -8));
+  ASSERT_ANY_THROW(f_pow(0.0, -7));
 }
 
 
