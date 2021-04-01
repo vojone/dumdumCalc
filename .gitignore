@@ -34,7 +34,7 @@ tags
 .DS_Store
 .directory
 *.debug
-Makefile*
+#Makefile*
 *.prl
 *.app
 moc_*.cpp
@@ -74,11 +74,10 @@ Thumbs.db
 *.Debug
 *.Release
 
-# Python byte code
-*.pyc
-
 # Binaries
 # --------
 *.dll
 *.exe
 
+# QT run and debug files
+src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/*
