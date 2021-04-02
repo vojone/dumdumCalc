@@ -54,8 +54,10 @@ vector<double> stringsToDoubles(vector<string> strings) {
   return doubles;
 }
 
-int main(int argc, char *argv[]) {
 
+
+int main(int argc, char *argv[]) {
+  cout << readInput()[1] << "\n";
   return 0;
 }
 

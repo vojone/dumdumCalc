@@ -1,6 +1,11 @@
 #names of src files
 MATH_LIB_NAME = math_lib
+
 TEST_BIN = tdd_math
+
+PROF_NAME = math_prof
+PROF_SAMPLE = profiling_sample
+
 
 #output path
 O_PATH = build/
@@ -31,8 +36,12 @@ doc:
 
 run:
 
-profile:
+profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
+	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
+#-------------------------------PROFILING--------------------------------------
+
+$(O_PATH)$(PROF_NAME) : $(O_PATH)$(PROF_NAME).o $(O_PATH)$(MATH_LIB_NAME).o
 
 #----------------------------TEST COMPILATION----------------------------------
 
@@ -49,9 +58,13 @@ $(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
 $(TEST_DIR)lib/%.a :
 	cd $(TEST_DIR) && cmake .. && make -s
 
+#------------------------------GENERAL TARGETS---------------------------------
+
 #ALL obj files need math_lib header file
 $(O_PATH)%.o : %.cpp $(MATH_LIB_NAME).h
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(O_PATH) : 
 	mkdir $@
+
+#------------------------------------END---------------------------------------
