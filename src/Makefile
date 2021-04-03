@@ -40,7 +40,11 @@ profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
 callgrind: $(O_PATH) $(O_PATH)$(PROF_NAME)
-	valgrind --tool=callgrind --callgrind-out-file=prof.out ./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
+	valgrind --tool=callgrind --callgrind-out-file=prof.out \
+	--collect-atstart=no \
+	"--toggle-collect=\
+	stdDeviation(std::vector<double, std::allocator<double> >)" \
+	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
 
 #-------------------------------PROFILING--------------------------------------
