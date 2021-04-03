@@ -16,7 +16,7 @@ TEST_DIR = googletest-master/googletest/
 
 #compiler settings
 CXX = g++
-CXXFLAGS = -Werror -Wall -pedantic -std=c++11
+CXXFLAGS := -Werror -Wall -pedantic -std=c++11
 
 CC = g++
 LDLIBS=-lm
@@ -36,6 +36,8 @@ doc:
 
 run:
 
+profile: CXXFLAGS := -g -pg -O2 $(CXXFLAGS)
+profile: LDFLAGS := -g -pg -O2 $(LDFLAGS)
 profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
