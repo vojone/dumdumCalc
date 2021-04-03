@@ -21,7 +21,7 @@ CXXFLAGS := -Werror -Wall -pedantic -std=c++11
 CC = g++
 LDLIBS=-lm
 
-.PHONY: all pack clean test doc run profile
+.PHONY: all pack clean test doc run profile callgrind
 all:
 
 pack:
@@ -36,10 +36,12 @@ doc:
 
 run:
 
-profile: CXXFLAGS := -g -pg -O2 $(CXXFLAGS)
-profile: LDFLAGS := -g -pg -O2 $(LDFLAGS)
 profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
+
+callgrind: $(O_PATH) $(O_PATH)$(PROF_NAME)
+	valgrind --tool=callgrind --callgrind-out-file=prof.out ./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
+
 
 #-------------------------------PROFILING--------------------------------------
 
