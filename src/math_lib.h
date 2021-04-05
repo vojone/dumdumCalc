@@ -75,11 +75,12 @@ extern double f_pow(const double base, const int exp);
 extern double root(const double base, const int exp);
 
 /**
- * @brief Calculates the absolute value of a number in argument
- * @param num number from which is calculated the absolute value
- * @return absolute value of number 
+ * @brief Calculates modulo of two numbers
+ * @param num1 natural divident
+ * @param num2 natural divisor
+ * @return remainder of division
  */
-extern double f_absol(const double num);
+extern double modulo(const double num1, const double num2);
 
 #endif //__MATH_LIB__
 

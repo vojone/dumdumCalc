@@ -126,17 +126,9 @@ TEST(errHandling, division) {
   ASSERT_ANY_THROW(div(100.0, 0.0));
 }
 
+/***                         MODULO TESTS                                ***/
 
 
-/***                         F_ABSOL TESTS                                 ***/
-TEST_F(allDoubles, absVal) {
-  for(size_t i = 0; i < values.size(); i++) {
-    for(size_t u = 0; u < values[i].size(); u++) {
-      double num = values[i][u];
-      ASSERT_DOUBLE_EQ(f_absol(num), num < 0 ? -num : num);
-    }
-  }
-}
 
 /***                            FACT TESTS                                 ***/
 TEST(factorialTests, smallPositiveIntegers) {
