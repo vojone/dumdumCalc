@@ -139,7 +139,7 @@ void MainWindow::on_result_clicked()
             fprintf(stderr,"Result is %f of (%f)\n",result,operand1);
             break;
         case Modulo:
-            result = std::fmod(operand1,operand2);
+            result = modulo(operand1, operand2);
             break;
     }
     QString resQString = QString::number(result);
