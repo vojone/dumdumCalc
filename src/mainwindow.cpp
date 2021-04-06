@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    resultShown = false;
+    ui->textEdit->setAlignment(Qt::AlignRight);
 }
 
 MainWindow::~MainWindow()
@@ -19,13 +20,17 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::insert_to_screen(char digit){
+    if(resultShown){
+        resultShown = false;
+        content = "";
+    }
     content+=digit;
-    ui->textBrowser->setPlainText(content);
+    ui->textEdit->setPlainText(content);
 }
 
 void MainWindow::set_operation(Operation op, QString symbol){
     currentOperation = op;
-    ui->textBrowser->insertPlainText(symbol);
+    ui->textEdit->insertPlainText(symbol);
     operand1 = content.toDouble();
     content="";
 }
@@ -41,7 +46,7 @@ void MainWindow::on_clear_clicked()
     content = "";
     operand1 = 0;
     operand2 = 0;
-    ui->textBrowser->setPlainText(content);
+    ui->textEdit->setPlainText(content);
 }
 
 void MainWindow::on_digit0_clicked()
@@ -98,6 +103,11 @@ void MainWindow::on_digit9_clicked()
     insert_to_screen('9');
 }
 
+void MainWindow::on_point_clicked()
+{
+    insert_to_screen('.');
+}
+
 void MainWindow::on_result_clicked()
 {
     operand2 = content.toDouble();
@@ -134,7 +144,8 @@ void MainWindow::on_result_clicked()
     }
     QString resQString = QString::number(result);
     content = resQString;
-    ui->textBrowser->setPlainText(resQString);
+    ui->textEdit->setPlainText(resQString);
+    resultShown = true;
 }
 
 void MainWindow::on_addition_clicked()
@@ -176,5 +187,7 @@ void MainWindow::on_modulo_clicked()
 void MainWindow::on_clearEntry_clicked()
 {
     content = "";
-    ui->textBrowser->setPlainText(content);
+    ui->textEdit->setPlainText(content);
 }
+
+

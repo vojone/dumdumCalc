@@ -59,6 +59,8 @@ private slots:
 
     void on_clearEntry_clicked();
 
+    void on_point_clicked();
+
 private:
     Ui::MainWindow *ui;
     HelpWindow *helpWindow;
@@ -67,6 +69,7 @@ private:
     double operand1;
     double operand2;
     QString content;
+    bool resultShown;
 
     void insert_to_screen(char digit);
     void set_operation(Operation op, QString symbol);
