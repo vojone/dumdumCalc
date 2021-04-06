@@ -897,7 +897,7 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>%</string>
+         <string>mod</string>
         </property>
        </widget>
       </item>
@@ -1029,8 +1029,20 @@ QPushButton:pressed {
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionHelp"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>backspace</tabstop>

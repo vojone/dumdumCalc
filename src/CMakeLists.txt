@@ -35,6 +35,9 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    helpwindow.h
+    helpwindow.cpp
+    helpwindow.ui
     ${TS_FILES}
   )
 else()
@@ -43,6 +46,9 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    helpwindow.h
+    helpwindow.cpp
+    helpwindow.ui
     ${TS_FILES}
   )
 endif()
