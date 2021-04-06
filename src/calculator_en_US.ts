@@ -4,14 +4,14 @@
 <context>
     <name>HelpWindow</name>
     <message>
-        <location filename="helpwindow.ui" line="20"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="63"/>
+        <location filename="helpwindow.ui" line="26"/>
+        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="67"/>
         <source>Dumdum Calculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="helpwindow.ui" line="43"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="64"/>
+        <location filename="helpwindow.ui" line="58"/>
+        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="68"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
