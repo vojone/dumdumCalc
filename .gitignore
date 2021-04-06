@@ -6,6 +6,8 @@ src/build/
 
 *.pdf
 
+*.out
+
 #ignore temp file created by VSC
 .vscode
 

@@ -17,8 +17,9 @@
  */
 
 #include "math_lib.h"
-#include <math.h>
+
 #include <stdexcept>
+#include <cmath>
 
 /**
  * @brief Arithmetic addition of two doubles
@@ -71,7 +72,7 @@ double div(const double num1, const double num2) {
  * @return factorial numbers from parameter
  */
 long long unsigned int fact(const int num) {
-	if(num < 0 || num > 20) { // Only works up to 20, then it overflows
+	if(num < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
 	
@@ -94,14 +95,14 @@ long long unsigned int fact(const int num) {
  */
 double f_pow(const double base, const int exp) {
 	if(exp < 0) {
-		throw std::runtime_error("Error, Only Positive Numbers");	
+		throw std::runtime_error("Error, Only Positive Numbers");
 	}
-  else if(exp == 0 && base == 0.0) {
-    throw std::runtime_error("Error, Unspecific Expression");	
-  }
-  else if(exp == 0) {
-    return 1.0;
-  }
+  	else if(exp == 0 && base == 0.0) {
+    	throw std::runtime_error("Error, Unspecific Expression");
+  	}
+  	else if(exp == 0) {
+    	return 1.0;
+  	}
 	else {
 		return pow(base, exp);
 	}
@@ -130,17 +131,13 @@ double root(const double base, const int exp) {
 }
 
 /**
- * @brief Calculates the absolute value of a number in argument
- * @param num number from which is calculated the absolute value
- * @return absolute value of number 
+ * @brief Calculates modulo of two numbers
+ * @param num1 natural divident
+ * @param num2 natural divisor
+ * @return remainder of division
  */
-double f_absol(const double num) {
-	if(num < 0) {
-		return -num;
-	}
-	else {
-		return num;
-	}
+double modulo(const double num1, const double num2) {
+	return std::fmod(num1, num2);
 }
 
 /***                          End of math_lib.cpp                          ***/

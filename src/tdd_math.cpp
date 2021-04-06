@@ -5,7 +5,7 @@
  *  Decription: TDD test for mathematical library, which is used in Calculator
  * 
  *      Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                        Last change: 31. 3. 2021
+ *                        Last change: 5. 4. 2021
  * 
  * ***************************************************************************/
 
@@ -18,6 +18,7 @@
 
 #include "math_lib.h"
 #include "gtest/gtest.h"
+#include <cmath>
 
 /**
  * A set of testing values (small positive doubles) 
@@ -126,17 +127,9 @@ TEST(errHandling, division) {
   ASSERT_ANY_THROW(div(100.0, 0.0));
 }
 
+/***                         MODULO TESTS                                ***/
 
 
-/***                         F_ABSOL TESTS                                 ***/
-TEST_F(allDoubles, absVal) {
-  for(size_t i = 0; i < values.size(); i++) {
-    for(size_t u = 0; u < values[i].size(); u++) {
-      double num = values[i][u];
-      ASSERT_DOUBLE_EQ(f_absol(num), num < 0 ? -num : num);
-    }
-  }
-}
 
 /***                            FACT TESTS                                 ***/
 TEST(factorialTests, smallPositiveIntegers) {
@@ -145,7 +138,7 @@ TEST(factorialTests, smallPositiveIntegers) {
     {1, 1},
     {3, 6},
     {10, 3628800},
-    {25, 6227020800},
+    {20, 2432902008176640000},
   };
 
   for(size_t i = 0; i < values.size(); i++) {
@@ -157,10 +150,8 @@ TEST(errHandling, fact) {
   ASSERT_ANY_THROW(fact(-10));
   ASSERT_ANY_THROW(fact(-50));
 
-  ASSERT_ANY_THROW(fact(1000));
+  ASSERT_TRUE(std::isinf(fact(1000)));
 }
-
-
 
 /***                             POW TESTS                                 ***/
 TEST(smallPositiveDoublesPow, f_pow) {
@@ -183,7 +174,7 @@ TEST(errHandling, f_pow) {
   ASSERT_ANY_THROW(f_pow(0.0, 0));
   ASSERT_ANY_THROW(f_pow(-7, -8));
 
-  ASSERT_ANY_THROW(f_pow(123456789.0, 100));
+  ASSERT_TRUE(std::isinf(f_pow(123456789.0, 100)));
 }
 
 
@@ -211,8 +202,25 @@ TEST(errHandling, root) {
   ASSERT_ANY_THROW(f_pow(0.0, -7));
 }
 
+/***                            MOD TESTS                                  ***/
 
+TEST(moduloTests, smallIntegers) {
+  std::vector<std::vector<int>> values = {
+    {15, 4},
+    {17, 3},
+    {100001, 10},
+    {-7, 3},
+    {-8, -9}
+  };
 
+  for(size_t i = 0; i < values.size(); i++) {
+    ASSERT_EQ(modulo(values[i][0],values[i][1]), values[i][0] % values[i][1]);
+  }
+}
+
+TEST(errHandling, modulo) {
+  ASSERT_ANY_THROW(modulo(0.0, 0));
+}
 
 int main(int argc, char *argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
