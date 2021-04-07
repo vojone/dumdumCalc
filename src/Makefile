@@ -39,17 +39,15 @@ run:
 profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
-callgrind: $(O_PATH) $(O_PATH)$(PROF_NAME)
-	valgrind --tool=callgrind --callgrind-out-file=prof.out \
-	--collect-atstart=no \
-	"--toggle-collect=\
-	stdDeviation(std::vector<double, std::allocator<double> >)" \
-	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
-
-
 #-------------------------------PROFILING--------------------------------------
 
 $(O_PATH)$(PROF_NAME) : $(O_PATH)$(PROF_NAME).o $(O_PATH)$(MATH_LIB_NAME).o
+
+PROFOUT := callgrind-prof$(ARGS).out
+
+callgrind: profile
+	valgrind --tool=callgrind --callgrind-out-file=$(PROFOUT) \
+	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
 #----------------------------TEST COMPILATION----------------------------------
 
