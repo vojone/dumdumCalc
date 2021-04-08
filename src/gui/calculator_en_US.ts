@@ -5,13 +5,11 @@
     <name>HelpWindow</name>
     <message>
         <location filename="helpwindow.ui" line="26"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="67"/>
         <source>Dumdum Calculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="helpwindow.ui" line="58"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_helpwindow.h" line="68"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -43,176 +41,147 @@ p, li { white-space: pre-wrap; }
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="14"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="644"/>
         <source>Dumdum Calculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="608"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="659"/>
+        <location filename="mainwindow.ui" line="636"/>
         <source>6</source>
         <oldsource>%</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="650"/>
+        <location filename="mainwindow.ui" line="255"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="444"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="655"/>
+        <location filename="mainwindow.ui" line="464"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="280"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="651"/>
+        <location filename="mainwindow.ui" line="300"/>
         <source>!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="649"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="660"/>
+        <location filename="mainwindow.ui" line="677"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="403"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="654"/>
+        <location filename="mainwindow.ui" line="423"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="485"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="656"/>
+        <location filename="mainwindow.ui" line="509"/>
         <source>√</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="195"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="649"/>
+        <location filename="mainwindow.ui" line="207"/>
         <source>^</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="954"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="667"/>
+        <location filename="mainwindow.ui" line="949"/>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="526"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="657"/>
+        <location filename="mainwindow.ui" line="550"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1019"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="669"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:36px; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;right&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1042"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="674"/>
+        <location filename="mainwindow.ui" line="1124"/>
         <source>Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1051"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="645"/>
+        <location filename="mainwindow.ui" line="1133"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="72"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="646"/>
+        <location filename="mainwindow.ui" line="76"/>
         <source>×</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="321"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="652"/>
+        <location filename="mainwindow.ui" line="341"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="362"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="653"/>
+        <location filename="mainwindow.ui" line="382"/>
         <source>.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="731"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="662"/>
+        <location filename="mainwindow.ui" line="759"/>
         <source>4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="872"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="665"/>
+        <location filename="mainwindow.ui" line="904"/>
         <source>mod</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="987"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="668"/>
+        <location filename="mainwindow.ui" line="985"/>
         <source>CE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="913"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="666"/>
+        <location filename="mainwindow.ui" line="1020"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Poppins&apos;; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;MS Shell Dlg 2&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1069"/>
         <source>⌫</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="567"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="658"/>
+        <location filename="mainwindow.ui" line="1105"/>
+        <source>±</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="595"/>
         <source>÷</source>
         <oldsource>/</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="775"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="663"/>
+        <location filename="mainwindow.ui" line="803"/>
         <source>=</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="650"/>
-        <source>-</source>
-        <oldsource>,</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="831"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="664"/>
+        <location filename="mainwindow.ui" line="859"/>
         <source>9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="690"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="661"/>
+        <location filename="mainwindow.ui" line="718"/>
         <source>7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="113"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="647"/>
+        <location filename="mainwindow.ui" line="117"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="154"/>
-        <location filename="build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/calculator_autogen/include/ui_mainwindow.h" line="648"/>
+        <location filename="mainwindow.ui" line="162"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>

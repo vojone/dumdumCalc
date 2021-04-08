@@ -61,10 +61,16 @@ private slots:
 
     void on_point_clicked();
 
+    void on_backspace_clicked();
+
+    void on_root_clicked();
+
+    void on_changeSign_clicked();
+
 private:
     Ui::MainWindow *ui;
     HelpWindow *helpWindow;
-    enum Operation {Addition, Substraction, Multiplication, Division, Root, Power, Factorial,  Modulo};
+    enum Operation {None, Addition, Substraction, Multiplication, Division, Root, Power, Factorial,  Modulo};
     Operation currentOperation;
     double operand1;
     double operand2;

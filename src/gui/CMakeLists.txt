@@ -38,8 +38,8 @@ if(ANDROID)
     helpwindow.h
     helpwindow.cpp
     helpwindow.ui
-    math_lib.cpp
-    math_lib.h
+    ../math_lib.cpp
+    ../math_lib.h
     ${TS_FILES}
   )
 else()
@@ -51,8 +51,8 @@ else()
     helpwindow.h
     helpwindow.cpp
     helpwindow.ui
-    math_lib.cpp
-    math_lib.h
+    ../math_lib.cpp
+    ../math_lib.h
     ${TS_FILES}
   )
 endif()

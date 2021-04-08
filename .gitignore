@@ -82,4 +82,7 @@ Thumbs.db
 *.exe
 
 # QT run and debug files
+src/gui/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/*
+src/gui/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*
 src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/*
+src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*

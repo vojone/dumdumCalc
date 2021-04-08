@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "math_lib.h"
+#include "../math_lib.h"
 #include <iostream>
 #include <string.h>
+#include <cmath>
+#include <limits>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,7 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     resultShown = false;
     ui->textEdit->setAlignment(Qt::AlignRight);
+    ui->textEdit->alignment();
+    ui->textEdit->setFontPointSize(32);
+    ui->textEdit->setReadOnly(true);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -30,8 +36,10 @@ void MainWindow::insert_to_screen(char digit){
 
 void MainWindow::set_operation(Operation op, QString symbol){
     currentOperation = op;
-    ui->textEdit->insertPlainText(symbol);
+    //ui->textEdit->insertPlainText(symbol);
     operand1 = content.toDouble();
+    content+=symbol;
+    ui->textEdit->setPlainText(content);
     content="";
 }
 
@@ -39,14 +47,6 @@ void MainWindow::on_actionHelp_triggered()
 {
     helpWindow = new HelpWindow(this);
     helpWindow->show();
-}
-
-void MainWindow::on_clear_clicked()
-{
-    content = "";
-    operand1 = 0;
-    operand2 = 0;
-    ui->textEdit->setPlainText(content);
 }
 
 void MainWindow::on_digit0_clicked()
@@ -110,14 +110,20 @@ void MainWindow::on_point_clicked()
 
 void MainWindow::on_result_clicked()
 {
-    operand2 = content.toDouble();
+    if(!currentOperation)
+        return;
+
+    //fix for repeated operation
+    if(!resultShown)
+        operand2 = content.toDouble();
+    else
+        operand1 = content.toDouble();
     content = "";
     double result = 0;
-
     switch (currentOperation) {
         case Addition:
             result = add(operand1, operand2);
-            fprintf(stderr,"Result is %f of (%f & %f)\n",result,operand1, operand2);
+            //fprintf(stderr,"Result is %f of (%f & %f)\n",result,operand1, operand2);
             break;
         case Substraction:
             result = sub(operand1, operand2);
@@ -126,6 +132,13 @@ void MainWindow::on_result_clicked()
             result = mult(operand1, operand2);
             break;
         case Division:
+            if(operand2 == 0){
+                content = "Cannot divide by 0";
+                ui->textEdit->setPlainText(content);
+                content="";
+                resultShown = true;
+                return;
+            }
             result = div(operand1, operand2);
             break;
         case Power:
@@ -136,15 +149,26 @@ void MainWindow::on_result_clicked()
             break;
         case Factorial:
             result = fact(operand1);
-            fprintf(stderr,"Result is %f of (%f)\n",result,operand1);
             break;
         case Modulo:
             result = modulo(operand1, operand2);
             break;
+        case None:
+            return;
     }
-    QString resQString = QString::number(result);
-    content = resQString;
-    ui->textEdit->setPlainText(resQString);
+
+    if(isnan(result)){
+        content = "";
+        ui->textEdit->setPlainText("Not a number");
+    }else if(isinf(result)){
+        content = "";
+        ui->textEdit->setPlainText("Infinity");
+    }else{
+        QString resQString = QString::number(result);
+        content = resQString;
+        ui->textEdit->setPlainText(resQString);
+    }
+
     resultShown = true;
 }
 
@@ -184,6 +208,11 @@ void MainWindow::on_modulo_clicked()
     set_operation(Modulo,"mod ");
 }
 
+void MainWindow::on_root_clicked()
+{
+    set_operation(Root, "√");
+}
+
 void MainWindow::on_clearEntry_clicked()
 {
     content = "";
@@ -191,3 +220,33 @@ void MainWindow::on_clearEntry_clicked()
 }
 
 
+
+void MainWindow::on_clear_clicked()
+{
+    content = "";
+    operand1 = 0;
+    operand2 = 0;
+    currentOperation = None;
+    ui->textEdit->setPlainText(content);
+}
+
+void MainWindow::on_backspace_clicked()
+{
+    int len = content.length();
+    if(len == 0 || !isdigit(content.toStdString().at(len-1)))
+        return;
+    content = content.left(len-1);
+    ui->textEdit->setPlainText(content);
+}
+
+void MainWindow::on_changeSign_clicked()
+{
+    if(content.toDouble() > 0){
+        content = "-"+content;
+        ui->textEdit->setPlainText(content);
+    }else if(content.toDouble() < 0){
+        //content[0]='+';
+        content = content.right(1);
+        ui->textEdit->setPlainText(content);
+    }
+}
