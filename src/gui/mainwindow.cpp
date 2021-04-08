@@ -246,7 +246,7 @@ void MainWindow::on_changeSign_clicked()
         ui->textEdit->setPlainText(content);
     }else if(content.toDouble() < 0){
         //content[0]='+';
-        content = content.right(1);
+        content = content.remove(0,1);
         ui->textEdit->setPlainText(content);
     }
 }
