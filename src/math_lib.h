@@ -56,7 +56,7 @@ extern double div(const double num1, const double num2);
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-extern long long unsigned int fact(const int num);
+extern double fact(const int num);
 
 /**
  * @brief Exponetiation with real base and natural exponent
