@@ -71,7 +71,7 @@ double div(const double num1, const double num2) {
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-long long unsigned int fact(const int num) {
+double fact(const int num) {
 	if(num < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
@@ -116,7 +116,7 @@ double f_pow(const double base, const int exp) {
  */
 double root(const double base, const int exp) {
   if((base < 0 && exp % 2 == 0) || exp < 0) {
-		throw std::runtime_error("Error, Only Positive Numbers");	
+		throw std::runtime_error("Error, Only Positive Numbers");
 	}
 	else {
 		double exp_dbl = exp;
@@ -137,6 +137,9 @@ double root(const double base, const int exp) {
  * @return remainder of division
  */
 double modulo(const double num1, const double num2) {
+	if(num2 == 0) {
+		throw std::runtime_error("Error, Not Defined");
+	}
 	return std::fmod(num1, num2);
 }
 
