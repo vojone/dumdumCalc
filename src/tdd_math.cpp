@@ -5,7 +5,7 @@
  *  Decription: TDD test for mathematical library, which is used in Calculator
  * 
  *      Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                        Last change: 5. 4. 2021
+ *                        Last change: 14. 4. 2021
  * 
  * ***************************************************************************/
 
@@ -149,6 +149,7 @@ TEST(factorialTests, smallPositiveIntegers) {
 TEST(errHandling, fact) {
   ASSERT_ANY_THROW(fact(-10));
   ASSERT_ANY_THROW(fact(-50));
+  ASSERT_ANY_THROW(fact(4.2));
 
   ASSERT_TRUE(std::isinf(fact(1000)));
 }
@@ -173,6 +174,7 @@ TEST(smallPositiveDoublesPow, f_pow) {
 TEST(errHandling, f_pow) {
   ASSERT_ANY_THROW(f_pow(0.0, 0));
   ASSERT_ANY_THROW(f_pow(-7, -8));
+  ASSERT_ANY_THROW(f_pow(2, 2.1));
 
   ASSERT_TRUE(std::isinf(f_pow(123456789.0, 100)));
 }
@@ -197,9 +199,11 @@ TEST(smallPositiveDoublesRoot, root) {
 }
 
 TEST(errHandling, root) {
-  ASSERT_ANY_THROW(f_pow(0.0, 0));
-  ASSERT_ANY_THROW(f_pow(-7, -8));
-  ASSERT_ANY_THROW(f_pow(0.0, -7));
+  ASSERT_ANY_THROW(root(0.0, 0));
+  ASSERT_ANY_THROW(root(-7, -8));
+  ASSERT_ANY_THROW(root(0.0, -7));
+
+  ASSERT_ANY_THROW(root(4,4.2));
 }
 
 /***                            MOD TESTS                                  ***/
