@@ -215,6 +215,9 @@ TEST(errHandling, root) {
   ASSERT_ANY_THROW(root(0.0, 0));
   ASSERT_ANY_THROW(root(-7, -8));
   ASSERT_ANY_THROW(root(0.0, -7));
+  
+  ASSERT_NO_THROW(root(-4,3));
+  ASSERT_ANY_THROW(root(-4,2));
 
   ASSERT_ANY_THROW(root(4,4.2));
 }
@@ -237,6 +240,7 @@ TEST(moduloTests, smallIntegers) {
 
 TEST(errHandling, modulo) {
   ASSERT_ANY_THROW(modulo(0.0, 0));
+  ASSERT_ANY_THROW(modulo(4.0, 0));
 }
 
 int main(int argc, char *argv[]) {
