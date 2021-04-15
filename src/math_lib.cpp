@@ -123,7 +123,7 @@ double f_pow(const double base, const double exp) {
  * @return root of number in argument
  */
 double root(const double base, const double exp) {
-	if(base < 0 || exp <= 0) {
+	if(exp <= 0 ||(base < 0 && fmod(exp, 2) == 0)) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
 	else if(fmod(exp, 1) != 0.0) {
