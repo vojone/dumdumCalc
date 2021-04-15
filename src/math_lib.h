@@ -5,7 +5,7 @@
  *        Purpose: Header file of mathematical library for calculator
  * 
  *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                       Last change: 31. 3. 2021
+ *                       Last change: 15. 4. 2021
  *   
  * ***************************************************************************/
 
@@ -56,7 +56,7 @@ extern double div(const double num1, const double num2);
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-extern double fact(const int num);
+extern double fact(const double num);
 
 /**
  * @brief Exponetiation with real base and natural exponent
@@ -64,7 +64,7 @@ extern double fact(const int num);
  * @param exp natural exponent
  * @return result of exponentiation
  */
-extern double f_pow(const double base, const int exp);
+extern double f_pow(const double base, const double exp);
 
 /**
  * @brief Calculates general root of a base number 
@@ -72,7 +72,7 @@ extern double f_pow(const double base, const int exp);
  * @param exp natural number which specifies the root
  * @return root of number in argument
  */
-extern double root(const double base, const int exp);
+extern double root(const double base, const double exp);
 
 /**
  * @brief Calculates modulo of two numbers
