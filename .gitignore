@@ -8,5 +8,8 @@ src/build/
 
 *.out
 
+!profiling/*.out
+!profiling/*.pdf
+
 #ignore temp file created by VSC
 .vscode
