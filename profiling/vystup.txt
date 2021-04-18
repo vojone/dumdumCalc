@@ -1,0 +1,243 @@
+				10 hodnot (gprof)
+-------------------------------------------------------------------------------
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       20     0.00     0.00  add(double, double)
+  0.00      0.00     0.00       11     0.00     0.00  f_pow(double, double)
+  0.00      0.00     0.00       10     0.00     0.00  void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+  0.00      0.00     0.00        5     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00        5     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  0.00      0.00     0.00        2     0.00     0.00  div(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  sub(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  mult(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9readInputB5cxx11v
+  0.00      0.00     0.00        1     0.00     0.00  sumOfSquares(std::vector<double, std::allocator<double> >)
+  0.00      0.00     0.00        1     0.00     0.00  root(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  average(std::vector<double, std::allocator<double> >)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00      10/20          average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00      10/20          sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[8]      0.0    0.00    0.00      20         add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/11          stdDeviation(std::vector<double, std::allocator<double> >) [20]
+                0.00    0.00      10/11          sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[9]      0.0    0.00    0.00      11         f_pow(double, double) [9]
+-----------------------------------------------
+                0.00    0.00       5/10          readInput[abi:cxx11]() [24]
+                0.00    0.00       5/10          void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+[10]     0.0    0.00    0.00      10         void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00       5/5           readInput[abi:cxx11]() [24]
+[11]     0.0    0.00    0.00       5         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+                0.00    0.00       5/10          void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00       5/5           stringsToDoubles(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >) [21]
+[12]     0.0    0.00    0.00       5         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[13]     0.0    0.00    0.00       2         div(double, double) [13]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[14]     0.0    0.00    0.00       2         sub(double, double) [14]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[15]     0.0    0.00    0.00       2         mult(double, double) [15]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [29]
+[16]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9readInputB5cxx11v [16]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[17]     0.0    0.00    0.00       1         sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+                0.00    0.00      10/11          f_pow(double, double) [9]
+                0.00    0.00      10/20          add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[18]     0.0    0.00    0.00       1         root(double, double) [18]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[19]     0.0    0.00    0.00       1         average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00      10/20          add(double, double) [8]
+-----------------------------------------------
+
+Index by function name
+
+  [16] _GLOBAL__sub_I__Z9readInputB5cxx11v (math_prof.cpp) [14] sub(double, double) [19] average(std::vector<double, std::allocator<double> >)
+  [17] sumOfSquares(std::vector<double, std::allocator<double> >) [15] mult(double, double) [11] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+   [8] add(double, double)    [18] root(double, double)   [12] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  [13] div(double, double)     [9] f_pow(double, double)  [10] void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+  
+				100 hodnot (gprof)
+-------------------------------------------------------------------------------
+
+ 
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00      200     0.00     0.00  add(double, double)
+  0.00      0.00     0.00      101     0.00     0.00  f_pow(double, double)
+  0.00      0.00     0.00      100     0.00     0.00  void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+  0.00      0.00     0.00        8     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00        8     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  0.00      0.00     0.00        2     0.00     0.00  div(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  sub(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  mult(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9readInputB5cxx11v
+  0.00      0.00     0.00        1     0.00     0.00  sumOfSquares(std::vector<double, std::allocator<double> >)
+  0.00      0.00     0.00        1     0.00     0.00  root(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  average(std::vector<double, std::allocator<double> >)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00     100/200         average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00     100/200         sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[8]      0.0    0.00    0.00     200         add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/101         stdDeviation(std::vector<double, std::allocator<double> >) [20]
+                0.00    0.00     100/101         sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[9]      0.0    0.00    0.00     101         f_pow(double, double) [9]
+-----------------------------------------------
+                0.00    0.00       8/100         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+                0.00    0.00      92/100         readInput[abi:cxx11]() [24]
+[10]     0.0    0.00    0.00     100         void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00       8/8           readInput[abi:cxx11]() [24]
+[11]     0.0    0.00    0.00       8         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+                0.00    0.00       8/100         void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00       8/8           stringsToDoubles(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >) [21]
+[12]     0.0    0.00    0.00       8         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[13]     0.0    0.00    0.00       2         div(double, double) [13]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[14]     0.0    0.00    0.00       2         sub(double, double) [14]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[15]     0.0    0.00    0.00       2         mult(double, double) [15]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [29]
+[16]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9readInputB5cxx11v [16]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[17]     0.0    0.00    0.00       1         sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+                0.00    0.00     100/101         f_pow(double, double) [9]
+                0.00    0.00     100/200         add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[18]     0.0    0.00    0.00       1         root(double, double) [18]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[19]     0.0    0.00    0.00       1         average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00     100/200         add(double, double) [8]
+-----------------------------------------------
+
+Index by function name
+
+  [16] _GLOBAL__sub_I__Z9readInputB5cxx11v (math_prof.cpp) [14] sub(double, double) [19] average(std::vector<double, std::allocator<double> >)
+  [17] sumOfSquares(std::vector<double, std::allocator<double> >) [15] mult(double, double) [11] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+   [8] add(double, double)    [18] root(double, double)   [12] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  [13] div(double, double)     [9] f_pow(double, double)  [10] void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+
+
+				1000 hodnot (gprof)
+-------------------------------------------------------------------------------
+
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00     2000     0.00     0.00  add(double, double)
+  0.00      0.00     0.00     1001     0.00     0.00  f_pow(double, double)
+  0.00      0.00     0.00     1000     0.00     0.00  void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+  0.00      0.00     0.00       11     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00       11     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  0.00      0.00     0.00        2     0.00     0.00  div(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  sub(double, double)
+  0.00      0.00     0.00        2     0.00     0.00  mult(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9readInputB5cxx11v
+  0.00      0.00     0.00        1     0.00     0.00  sumOfSquares(std::vector<double, std::allocator<double> >)
+  0.00      0.00     0.00        1     0.00     0.00  root(double, double)
+  0.00      0.00     0.00        1     0.00     0.00  average(std::vector<double, std::allocator<double> >)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00    1000/2000        average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00    1000/2000        sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[8]      0.0    0.00    0.00    2000         add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/1001        stdDeviation(std::vector<double, std::allocator<double> >) [20]
+                0.00    0.00    1000/1001        sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+[9]      0.0    0.00    0.00    1001         f_pow(double, double) [9]
+-----------------------------------------------
+                0.00    0.00      11/1000        void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+                0.00    0.00     989/1000        readInput[abi:cxx11]() [24]
+[10]     0.0    0.00    0.00    1000         void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00      11/11          readInput[abi:cxx11]() [24]
+[11]     0.0    0.00    0.00      11         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+                0.00    0.00      11/1000        void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [10]
+-----------------------------------------------
+                0.00    0.00      11/11          stringsToDoubles(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >) [21]
+[12]     0.0    0.00    0.00      11         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[13]     0.0    0.00    0.00       2         div(double, double) [13]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[14]     0.0    0.00    0.00       2         sub(double, double) [14]
+-----------------------------------------------
+                0.00    0.00       2/2           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[15]     0.0    0.00    0.00       2         mult(double, double) [15]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [29]
+[16]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9readInputB5cxx11v [16]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[17]     0.0    0.00    0.00       1         sumOfSquares(std::vector<double, std::allocator<double> >) [17]
+                0.00    0.00    1000/1001        f_pow(double, double) [9]
+                0.00    0.00    1000/2000        add(double, double) [8]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[18]     0.0    0.00    0.00       1         root(double, double) [18]
+-----------------------------------------------
+                0.00    0.00       1/1           stdDeviation(std::vector<double, std::allocator<double> >) [20]
+[19]     0.0    0.00    0.00       1         average(std::vector<double, std::allocator<double> >) [19]
+                0.00    0.00    1000/2000        add(double, double) [8]
+-----------------------------------------------
+
+Index by function name
+
+  [16] _GLOBAL__sub_I__Z9readInputB5cxx11v (math_prof.cpp) [14] sub(double, double) [19] average(std::vector<double, std::allocator<double> >)
+  [17] sumOfSquares(std::vector<double, std::allocator<double> >) [15] mult(double, double) [11] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+   [8] add(double, double)    [18] root(double, double)   [12] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double&&)
+  [13] div(double, double)     [9] f_pow(double, double)  [10] void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)

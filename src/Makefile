@@ -36,6 +36,8 @@ doc:
 
 run:
 
+profile: CXXFLAGS := -O2 $(CXXFLAGS)
+profile: LDFLAGS := -O2 $(LDFLAGS)
 profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
 
