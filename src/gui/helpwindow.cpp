@@ -1,3 +1,9 @@
+/**
+ * @file helpwindow.cpp
+ *
+ * @brief Implementation of the help window of GUI
+ * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ */
 #include "helpwindow.h"
 #include "ui_helpwindow.h"
 

@@ -1,10 +1,15 @@
+/**
+ * @file mainwindow.cpp
+ *
+ * @brief Implementation of the main window of GUI
+ * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ */
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "../math_lib.h"
 #include <iostream>
 #include <string.h>
-#include <cmath>
-#include <limits>
+#include <QKeyEvent>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -17,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit->alignment();
     ui->textEdit->setFontPointSize(32);
     ui->textEdit->setReadOnly(true);
+    currentOperation = None;
 }
 
 
@@ -29,18 +35,52 @@ void MainWindow::insert_to_screen(char digit){
     if(resultShown){
         resultShown = false;
         content = "";
+        currentOperation = None;
     }
     content+=digit;
-    ui->textEdit->setPlainText(content);
+    //ui->textEdit->setPlainText(content);
+    update_screen();
 }
 
+void MainWindow::update_screen(){
+    if(currentOperation != None){
+        if(!resultShown)
+            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+"<h1 style='margin-top:-10px'>"+content+"</h1>");
+        else{
+            QString op2str = QString::number(operand2);
+            if(operand2 < 0)
+                op2str = "("+op2str+")";
+            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+op2str+"=<h1 style='margin-top:-10px'>"+content+"</h1>");
+        }
+    }
+    else
+        ui->textEdit->setPlainText(content);
+}
+void MainWindow::update_screen(QString newContent){
+    if(currentOperation != None){
+        if(!resultShown)
+            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+"<h1 style='margin-top:-10px'>"+newContent+"</h1>");
+        else{
+            QString op2str = QString::number(operand2);
+            if(operand2 < 0)
+                op2str = "("+op2str+")";
+            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+op2str+"=<h1 style='margin-top:-10px'>"+newContent+"</h1>");
+        }
+    }else
+        ui->textEdit->setPlainText(newContent);
+}
 void MainWindow::set_operation(Operation op, QString symbol){
-    currentOperation = op;
-    //ui->textEdit->insertPlainText(symbol);
+    if(operand1 && currentOperation != None && !resultShown){
+        //resultShown = false;
+        on_result_clicked();
+    }
     operand1 = content.toDouble();
-    content+=symbol;
-    ui->textEdit->setPlainText(content);
+    currentOperation = op;
+    currentOperationSymbol = symbol;
     content="";
+
+    resultShown = false;
+    update_screen();
 }
 
 void MainWindow::on_actionHelp_triggered()
@@ -134,7 +174,7 @@ void MainWindow::on_result_clicked()
         case Division:
             if(operand2 == 0){
                 content = "Cannot divide by 0";
-                ui->textEdit->setPlainText(content);
+                update_screen();
                 content="";
                 resultShown = true;
                 return;
@@ -156,20 +196,20 @@ void MainWindow::on_result_clicked()
         case None:
             return;
     }
-
+    resultShown = true;
     if(isnan(result)){
         content = "";
-        ui->textEdit->setPlainText("Not a number");
+        update_screen("Not a number");
     }else if(isinf(result)){
         content = "";
-        ui->textEdit->setPlainText("Infinity");
+        update_screen("Infinity");
     }else{
         QString resQString = QString::number(result);
         content = resQString;
-        ui->textEdit->setPlainText(resQString);
+        update_screen();
     }
 
-    resultShown = true;
+
 }
 
 void MainWindow::on_addition_clicked()
@@ -216,7 +256,7 @@ void MainWindow::on_root_clicked()
 void MainWindow::on_clearEntry_clicked()
 {
     content = "";
-    ui->textEdit->setPlainText(content);
+    update_screen();
 }
 
 
@@ -233,20 +273,81 @@ void MainWindow::on_clear_clicked()
 void MainWindow::on_backspace_clicked()
 {
     int len = content.length();
-    if(len == 0 || !isdigit(content.toStdString().at(len-1)))
+    char toBeRemoved = content.toStdString().at(len-1);
+    if(len == 0 || (!isdigit(toBeRemoved) && toBeRemoved != '.') )
         return;
     content = content.left(len-1);
-    ui->textEdit->setPlainText(content);
+    update_screen();
 }
 
 void MainWindow::on_changeSign_clicked()
 {
     if(content.toDouble() > 0){
         content = "-"+content;
-        ui->textEdit->setPlainText(content);
     }else if(content.toDouble() < 0){
         //content[0]='+';
         content = content.remove(0,1);
-        ui->textEdit->setPlainText(content);
+    }
+    update_screen();
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *ev)
+{
+    switch (ev->key()) {
+        case Qt::Key_0:
+            on_digit0_clicked();
+            break;
+        case Qt::Key_1:
+            on_digit1_clicked();
+            break;
+        case Qt::Key_2:
+            on_digit2_clicked();
+            break;
+        case Qt::Key_3:
+            on_digit3_clicked();
+            break;
+        case Qt::Key_4:
+            on_digit4_clicked();
+            break;
+        case Qt::Key_5:
+            on_digit5_clicked();
+            break;
+        case Qt::Key_6:
+            on_digit6_clicked();
+            break;
+        case Qt::Key_7:
+            on_digit7_clicked();
+            break;
+        case Qt::Key_8:
+            on_digit8_clicked();
+            break;
+        case Qt::Key_9:
+            on_digit9_clicked();
+            break;
+        case Qt::Key_Plus:
+            on_addition_clicked();
+            break;
+        case Qt::Key_Minus:
+            on_substraction_clicked();
+            break;
+        case Qt::Key_Asterisk:
+        case Qt::Key_multiply:
+            on_multiplication_clicked();
+            break;
+        case Qt::Key_Slash:
+        case Qt::Key_division:
+            on_division_clicked();
+            break;
+        case Qt::Key_Backspace:
+            on_backspace_clicked();
+            break;
+        case Qt::Key_Enter:
+        case Qt::Key_Return:
+        case Qt::Key_Equal:
+            on_result_clicked();
+            break;
+        case Qt::Key_C:
+            on_clear_clicked();
+            break;
     }
 }

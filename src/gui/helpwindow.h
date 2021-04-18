@@ -1,3 +1,9 @@
+/**
+ * @file helpwindow.h
+ *
+ * @brief Header file for the help window of the GUI
+ * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ */
 #ifndef HELPWINDOW_H
 #define HELPWINDOW_H
 

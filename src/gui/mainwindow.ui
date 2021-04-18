@@ -23,6 +23,12 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>464</width>
+     <height>0</height>
+    </size>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -77,65 +83,18 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
-       <widget class="QPushButton" name="digit5">
+      <item row="2" column="2">
+       <widget class="QPushButton" name="clearEntry">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
         <property name="font">
          <font>
           <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>5</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="3">
-       <widget class="QPushButton" name="addition">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
+          <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
          </font>
@@ -144,7 +103,7 @@ QPushButton:pressed {
          <string notr="true">
 QPushButton {
      border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
+	font-size: 20pt;
     font-weight: 100;
  }
 QPushButton:hover {
@@ -155,399 +114,8 @@ QPushButton:pressed {
 	 border: 2px solid grey;
  }</string>
         </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
         <property name="text">
-         <string>+</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="4">
-       <widget class="QPushButton" name="power">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>^</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="3">
-       <widget class="QPushButton" name="substraction">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="4">
-       <widget class="QPushButton" name="factiorial">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>!</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QPushButton" name="digit2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="QPushButton" name="point">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QPushButton" name="digit0">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="digit1">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="2">
-       <widget class="QPushButton" name="root">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>√</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="2">
-       <widget class="QPushButton" name="digit3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="text">
-         <string>3</string>
+         <string>CE</string>
         </property>
        </widget>
       </item>
@@ -596,8 +164,8 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="6" column="2">
-       <widget class="QPushButton" name="digit6">
+      <item row="4" column="2">
+       <widget class="QPushButton" name="digit9">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -633,12 +201,12 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>6</string>
+         <string>9</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QPushButton" name="digit8">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="modulo">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -654,13 +222,17 @@ QPushButton:pressed {
         <property name="font">
          <font>
           <family>Poppins</family>
-          <pointsize>24</pointsize>
+          <pointsize>20</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">
 QPushButton {
      border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 20pt;
+    font-weight: 100;
  }
 QPushButton:hover {
      background-color: rgb(230, 230, 230);
@@ -674,12 +246,12 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>8</string>
+         <string>mod</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="digit7">
+      <item row="8" column="2">
+       <widget class="QPushButton" name="digit3">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -715,12 +287,12 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>7</string>
+         <string>3</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="digit4">
+      <item row="4" column="4">
+       <widget class="QPushButton" name="power">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -737,12 +309,16 @@ QPushButton:pressed {
          <font>
           <family>Poppins</family>
           <pointsize>24</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">
 QPushButton {
      border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 24pt;
+    font-weight: 100;
  }
 QPushButton:hover {
      background-color: rgb(230, 230, 230);
@@ -756,7 +332,7 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>4</string>
+         <string>^</string>
         </property>
        </widget>
       </item>
@@ -819,8 +395,8 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="4" column="2">
-       <widget class="QPushButton" name="digit9">
+      <item row="9" column="0">
+       <widget class="QPushButton" name="digit0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -856,12 +432,53 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>9</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="modulo">
+      <item row="8" column="1">
+       <widget class="QPushButton" name="digit2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="3">
+       <widget class="QPushButton" name="addition">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -901,7 +518,175 @@ QPushButton:pressed {
          <locale language="English" country="UnitedStates"/>
         </property>
         <property name="text">
-         <string>mod</string>
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QPushButton" name="digit4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="digit8">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QPushButton" name="digit5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="4">
+       <widget class="QPushButton" name="factiorial">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 24pt;
+    font-weight: 100;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>!</string>
         </property>
        </widget>
       </item>
@@ -922,7 +707,7 @@ QPushButton:pressed {
         <property name="font">
          <font>
           <family>Poppins</family>
-          <pointsize>24</pointsize>
+          <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
          </font>
@@ -931,7 +716,7 @@ QPushButton:pressed {
          <string notr="true">
 QPushButton {
      border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
+	font-size: 20pt;
     font-weight: 100;
  }
 QPushButton:hover {
@@ -950,83 +735,8 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="clearEntry">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-          <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">
-QPushButton {
-     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
- }
-QPushButton:hover {
-     background-color: rgb(230, 230, 230);
- }
-QPushButton:pressed {
-      background-color: rgb(200, 200, 200);  
-	 border: 2px solid grey;
- }</string>
-        </property>
-        <property name="text">
-         <string>CE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="5">
-       <widget class="QTextEdit" name="textEdit">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>110</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Poppins</family>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/*border:none;*/
-border: 4px solid rgb(230, 230, 230); 
-/*margin-left:10px;*/</string>
-        </property>
-        <property name="locale">
-         <locale language="English" country="UnitedStates"/>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <property name="html">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="4">
-       <widget class="QPushButton" name="backspace">
+      <item row="9" column="2">
+       <widget class="QPushButton" name="root">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -1050,8 +760,178 @@ p, li { white-space: pre-wrap; }
         <property name="styleSheet">
          <string notr="true">
 QPushButton {
-     border: none; background: white; font-family: &quot;Poppins&quot;,&quot;Roboto&quot;,sans-serif;
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
 	font-size: 24pt;
+    font-weight: 100;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>√</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="3">
+       <widget class="QPushButton" name="substraction">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 24pt;
+    font-weight: 100;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="changeSign">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>20</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 20pt;
+    font-weight: 100;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="text">
+         <string>±</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QPushButton" name="point">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QPushButton" name="backspace">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>20</pointsize>
+          <weight>12</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+	font-size: 20pt;
     font-weight: 100;
  }
 QPushButton:hover {
@@ -1070,28 +950,30 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="2" column="3">
-       <widget class="QPushButton" name="changeSign">
+      <item row="6" column="2">
+       <widget class="QPushButton" name="digit6">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Poppins</family>
           <pointsize>24</pointsize>
-          <weight>12</weight>
-          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">
 QPushButton {
      border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
-	font-size: 24pt;
-    font-weight: 100;
  }
 QPushButton:hover {
      background-color: rgb(230, 230, 230);
@@ -1101,8 +983,138 @@ QPushButton:pressed {
 	 border: 2px solid grey;
  }</string>
         </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
         <property name="text">
-         <string>±</string>
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="5">
+       <widget class="QTextEdit" name="textEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>125</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/*border:none;*/
+border: 4px solid rgb(230, 230, 230); 
+/*margin-left:10px;*/
+line-height:20px;
+font-size:20px;
+h1{
+	font-size:40px;
+}</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Poppins'; font-size:20px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:10px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="digit7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="digit1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Poppins</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QPushButton {
+     border: none; background: white; font-family: 	&quot;Poppins&quot;,&quot;Roboto&quot;, sans-serif;
+ }
+QPushButton:hover {
+     background-color: rgb(230, 230, 230);
+ }
+QPushButton:pressed {
+      background-color: rgb(200, 200, 200);  
+	 border: 2px solid grey;
+ }</string>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStates"/>
+        </property>
+        <property name="text">
+         <string>1</string>
         </property>
        </widget>
       </item>
