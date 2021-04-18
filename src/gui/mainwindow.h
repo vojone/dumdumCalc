@@ -26,7 +26,7 @@ private slots:
     /**
      * @brief Opens the Help window
      */
-    void on_actionHelp_triggered();
+    void show_help();
 
     /**
      * @brief Clears the input

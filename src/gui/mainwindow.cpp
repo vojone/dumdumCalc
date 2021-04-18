@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit->setFontPointSize(32);
     ui->textEdit->setReadOnly(true);
     currentOperation = None;
+
+    connect(ui->menuMenu, SIGNAL(aboutToShow()), this, SLOT(show_help()));
 }
 
 
@@ -83,23 +85,23 @@ void MainWindow::set_operation(Operation op, QString symbol){
     update_screen();
 }
 
-void MainWindow::on_actionHelp_triggered()
+void MainWindow::show_help()
 {
     helpWindow = new HelpWindow(this);
+    helpWindow->setWindowFlag(Qt::WindowContextHelpButtonHint, false);
     helpWindow->show();
 }
 
 void MainWindow::on_digit0_clicked()
 {
-    insert_to_screen('0');
+    if(content != "0")
+        insert_to_screen('0');
 }
 
 void MainWindow::on_digit1_clicked()
 {
     insert_to_screen('1');
 }
-
-
 
 void MainWindow::on_digit2_clicked()
 {
@@ -145,7 +147,8 @@ void MainWindow::on_digit9_clicked()
 
 void MainWindow::on_point_clicked()
 {
-    insert_to_screen('.');
+    if(!content.contains("."))
+        insert_to_screen('.');
 }
 
 void MainWindow::on_result_clicked()
@@ -273,8 +276,10 @@ void MainWindow::on_clear_clicked()
 void MainWindow::on_backspace_clicked()
 {
     int len = content.length();
+    if(len == 0 )
+        return;
     char toBeRemoved = content.toStdString().at(len-1);
-    if(len == 0 || (!isdigit(toBeRemoved) && toBeRemoved != '.') )
+    if(!isdigit(toBeRemoved) && toBeRemoved != '.')
         return;
     content = content.left(len-1);
     update_screen();
@@ -348,6 +353,10 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
             break;
         case Qt::Key_C:
             on_clear_clicked();
+            break;
+        case Qt::Key_Comma:
+        case Qt::Key_Period:
+            on_point_clicked();
             break;
     }
 }
