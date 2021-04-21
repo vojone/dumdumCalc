@@ -101,6 +101,15 @@ void MainWindow::update_screen(QString newContent){
 }
 
 /**
+ * @brief Changes color of whole content of display
+ * @note Color is set by default by calling update_screen()
+ * @param new_color string which describes color (it excepts every format which excepts HTML)
+ */
+void MainWindow::change_color(QString new_color) {
+    ui->textEdit->setHtml("<font color=\"" + new_color + "\">" + ui->textEdit->toHtml() + "<\font>");
+}
+
+/**
  * @brief Sets the operation type and appends the operation symbol to the display
  * @param op Operation type from the Operation Enum
  * @param symbol The symbol of the operation which will be appended to the display
@@ -319,10 +328,12 @@ void MainWindow::on_result_clicked()
     resultShown = true;
     if(!content.isEmpty()) {
         update_screen();
+        change_color("red");
     }
     else if(std::isinf(result)){
         content = "";
         update_screen("Infinity");
+        change_color("blue");
     }
     else{
         QString resQString = QString::number(result);

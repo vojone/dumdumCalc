@@ -213,5 +213,12 @@ private:
      * @param string that will be displayed in the main part of the screen
      */
     void update_screen(QString newContent);
+
+    /**
+     * @brief Changes color of whole content of display
+     * @note Color is set by default by calling update_screen()
+     * @param new_color string which describes color (it excepts every format which excepts HTML)
+     */
+    void change_color(QString new_color);
 };
 #endif // MAINWINDOW_H
