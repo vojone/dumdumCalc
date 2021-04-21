@@ -5,7 +5,7 @@
  *       Purpose: Implementation of mathematical library used in calculator
  * 
  *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                       Last change: 31. 3. 2021
+ *                       Last change: 15. 4. 2021
  *   
  * ***************************************************************************/
 
@@ -61,6 +61,7 @@ double div(const double num1, const double num2) {
 	if(num2 == 0) {
 		throw std::runtime_error("Error, Not Defined");	
 	}
+	
 	else {
 		return num1 / num2;
 	}
@@ -71,9 +72,12 @@ double div(const double num1, const double num2) {
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-long long unsigned int fact(const int num) {
+double fact(const double num) {	
 	if(num < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
+	}
+	if(fmod(num, 1) != 0.0) {
+		throw std::runtime_error("Error, Only Integers");
 	}
 	
 	if(num > 1){
@@ -93,14 +97,18 @@ long long unsigned int fact(const int num) {
  * @param exp natural exponent
  * @return result of exponentiation
  */
-double f_pow(const double base, const int exp) {
+double f_pow(const double base, const double exp) {
 	if(exp < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
-  	else if(exp == 0 && base == 0.0) {
+  	else if(exp == 0.0 && base == 0.0) {
     	throw std::runtime_error("Error, Unspecific Expression");
   	}
-  	else if(exp == 0) {
+  	else if(fmod(exp, 1) != 0.0) {
+  		throw std::runtime_error("Error, Only Integers");
+	}
+  	
+  	if(exp == 0) {
     	return 1.0;
   	}
 	else {
@@ -114,14 +122,18 @@ double f_pow(const double base, const int exp) {
  * @param exp natural number which specifies the root
  * @return root of number in argument
  */
-double root(const double base, const int exp) {
-  if((base < 0 && exp % 2 == 0) || exp < 0) {
-		throw std::runtime_error("Error, Only Positive Numbers");	
+double root(const double base, const double exp) {
+	if(exp <= 0 ||(base < 0 && fmod(exp, 2) == 0)) {
+		throw std::runtime_error("Error, Only Positive Numbers");
 	}
+	else if(fmod(exp, 1) != 0.0) {
+		throw std::runtime_error("Error, Only Integers");
+	}
+	
 	else {
 		double exp_dbl = exp;
 		
-		if(base < 0 && (exp % 2) == 1){
+		if(base < 0 && fmod(exp, 2) == 1){
 			return -pow(-base, 1/exp_dbl);
 		}
 		else {
@@ -137,6 +149,10 @@ double root(const double base, const int exp) {
  * @return remainder of division
  */
 double modulo(const double num1, const double num2) {
+	if(num2 == 0) {
+		throw std::runtime_error("Error, Not Defined");
+	}
+	
 	return std::fmod(num1, num2);
 }
 
