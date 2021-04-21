@@ -1,3 +1,14 @@
+/******************************************************************************
+ *                            dumdumCalculator
+ *                              mainwindow.cpp
+ *
+ *          Purpose: Implementation of the main window of GUI
+ *
+ *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ *                       Last change: 21. 4. 2021
+ *
+ * ***************************************************************************/
+
 /**
  * @file mainwindow.cpp
  *
@@ -12,7 +23,9 @@
 #include <cmath>
 #include <QKeyEvent>
 
-
+/**
+ * @brief MainWindow::~MainWindow MainWindow ctor
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -28,12 +41,18 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->menuMenu, SIGNAL(aboutToShow()), this, SLOT(show_help()));
 }
 
-
+/**
+ * @brief MainWindow::~MainWindow MainWindow dtor
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/**
+ * @brief Edits the variable storing the operand value and updates the display
+ * @param digit The digit which will be appended to the display
+ */
 void MainWindow::insert_to_screen(char digit){
     if(resultShown){
         resultShown = false;
@@ -45,6 +64,9 @@ void MainWindow::insert_to_screen(char digit){
     update_screen();
 }
 
+/**
+ * @brief Updates the display content
+ */
 void MainWindow::update_screen(){
     if(currentOperation != None){
         if(!resultShown)
@@ -59,6 +81,11 @@ void MainWindow::update_screen(){
     else
         ui->textEdit->setPlainText(content);
 }
+
+/**
+ * @brief Updates the display content with passed string
+ * @param string that will be displayed in the main part of the screen
+ */
 void MainWindow::update_screen(QString newContent){
     if(currentOperation != None){
         if(!resultShown)
@@ -72,6 +99,12 @@ void MainWindow::update_screen(QString newContent){
     }else
         ui->textEdit->setPlainText(newContent);
 }
+
+/**
+ * @brief Sets the operation type and appends the operation symbol to the display
+ * @param op Operation type from the Operation Enum
+ * @param symbol The symbol of the operation which will be appended to the display
+ */
 void MainWindow::set_operation(Operation op, QString symbol){
     if(operand1 && currentOperation != None && !resultShown){
         //resultShown = false;
@@ -86,6 +119,9 @@ void MainWindow::set_operation(Operation op, QString symbol){
     update_screen();
 }
 
+/**
+ * @brief Opens the Help window
+ */
 void MainWindow::show_help()
 {
     helpWindow = new HelpWindow(this);
@@ -93,65 +129,105 @@ void MainWindow::show_help()
     helpWindow->show();
 }
 
+/**
+ * @brief Writes 0
+ */
 void MainWindow::on_digit0_clicked()
 {
     if(content != "0")
         insert_to_screen('0');
 }
 
+/**
+ * @brief Writes 1
+ */
 void MainWindow::on_digit1_clicked()
 {
     insert_to_screen('1');
 }
 
+/**
+ * @brief Writes 2
+ */
 void MainWindow::on_digit2_clicked()
 {
     insert_to_screen('2');
 }
 
+/**
+ * @brief Writes 3
+ */
 void MainWindow::on_digit3_clicked()
 {
     insert_to_screen('3');
 }
 
+/**
+ * @brief Writes 4
+ */
 void MainWindow::on_digit4_clicked()
 {
     insert_to_screen('4');
 }
 
-
+/**
+ * @brief Writes 5
+ */
 void MainWindow::on_digit5_clicked()
 {
     insert_to_screen('5');
 }
 
+/**
+ * @brief Writes 6
+ */
 void MainWindow::on_digit6_clicked()
 {
     insert_to_screen('6');
 }
 
+/**
+ * @brief Writes 7
+ */
 void MainWindow::on_digit7_clicked()
 {
     insert_to_screen('7');
 }
 
-
+/**
+ * @brief Writes 8
+ */
 void MainWindow::on_digit8_clicked()
 {
     insert_to_screen('8');
 }
 
+/**
+ * @brief Writes 9
+ */
 void MainWindow::on_digit9_clicked()
 {
     insert_to_screen('9');
 }
 
+/**
+ * @brief Adds the decimal point
+ */
 void MainWindow::on_point_clicked()
 {
     if(!content.contains("."))
         insert_to_screen('.');
 }
 
+/**
+ * @brief tryCompute tries to compute given function and return error or result
+ * @param op pointer to operation to be done withc operands
+ * @param op1 first operand
+ * @param op2 second operand
+ * @param[out] msg pointer to string that should be filled with err. msg
+ * @param customMsg custom message to be returned in msg parameter if there will be an error
+ * @return results of calculation or zero
+ */
 double tryCompute(double (*op)(double,double),
                 double op1, double op2,
                 QString *msg, QString customMsg = QString()) {
@@ -170,6 +246,15 @@ double tryCompute(double (*op)(double,double),
     return result;
 }
 
+/**
+ * @brief tryCompute tries to compute given function and return error or result
+ * @note overloads tryCompute
+ * @param op pointer to operation with one operand
+ * @param op1 oparend which will be passed to the given function
+ * @param[out] msg pointer to string that should be filled with err. msg
+ * @param customMsg custom message to be returned in msg parameter if there will be an error
+ * @return results of calculation or zero (if there will be an error)
+ */
 double tryCompute(double (*op)(double), double op1,
                 QString *msg, QString customMsg = QString()) {
 
@@ -187,6 +272,9 @@ double tryCompute(double (*op)(double), double op1,
     return result;
 }
 
+/**
+ * @brief Calls functions from the Math Library and shows the result
+ */
 void MainWindow::on_result_clicked()
 {
     if(!currentOperation)
@@ -243,47 +331,74 @@ void MainWindow::on_result_clicked()
     }
 }
 
+/**
+ * @brief Sets the operation the addition
+ */
 void MainWindow::on_addition_clicked()
 {
     set_operation(Addition, "+");
 }
 
+/**
+ * @brief Sets the operation to substraction
+ */
 void MainWindow::on_substraction_clicked()
 {
     set_operation(Substraction, "-");
 }
 
+/**
+ * @brief Sets the operation to multiplication
+ */
 void MainWindow::on_multiplication_clicked()
 {
     set_operation(Multiplication, "×");
 }
 
+/**
+ * @brief Sets the operation to division
+ */
 void MainWindow::on_division_clicked()
 {
     set_operation(Division,"÷");
 }
 
+/**
+ * @brief Sets the operation to power
+ */
 void MainWindow::on_power_clicked()
 {
     set_operation(Power,"^");
 }
 
+/**
+ * @brief Sets the operation to factorial
+ */
 void MainWindow::on_factiorial_clicked()
 {
     set_operation(Factorial,"!");
     on_result_clicked();
 }
 
+/**
+ * @brief Sets the operation to modulo
+ */
 void MainWindow::on_modulo_clicked()
 {
     set_operation(Modulo,"mod ");
 }
 
+/**
+ * @brief Sets the operation to root
+ */
 void MainWindow::on_root_clicked()
 {
     set_operation(Root, "√");
 }
 
+/**
+ * @brief Clears the entry
+ */
 void MainWindow::on_clearEntry_clicked()
 {
     content = "";
@@ -291,7 +406,9 @@ void MainWindow::on_clearEntry_clicked()
 }
 
 
-
+/**
+ * @brief Clears the input
+ */
 void MainWindow::on_clear_clicked()
 {
     content = "";
@@ -301,6 +418,9 @@ void MainWindow::on_clear_clicked()
     ui->textEdit->setPlainText(content);
 }
 
+/**
+ * @brief Removes the last digit
+ */
 void MainWindow::on_backspace_clicked()
 {
     int len = content.length();
@@ -313,6 +433,9 @@ void MainWindow::on_backspace_clicked()
     update_screen();
 }
 
+/**
+ * @brief Changes the signature
+ */
 void MainWindow::on_changeSign_clicked()
 {
     if(content.toDouble() > 0){
@@ -324,6 +447,10 @@ void MainWindow::on_changeSign_clicked()
     update_screen();
 }
 
+/**
+ * @brief handles key press events at the main window
+ * @param *event The event which will be checked if an important key was pressed
+ */
 void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
     switch (ev->key()) {

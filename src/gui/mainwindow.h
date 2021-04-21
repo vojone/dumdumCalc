@@ -1,9 +1,21 @@
+/******************************************************************************
+ *                            dumdumCalculator
+ *                              mainwindow.h
+ *
+ *             Purpose: Header file for the main window of the GUI
+ *
+ *        Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
+ *                       Last change: 21. 4. 2021
+ *
+ * ***************************************************************************/
+
 /**
  * @file mainwindow.h
  *
  * @brief Header file for the main window of the GUI
  * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
  */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
