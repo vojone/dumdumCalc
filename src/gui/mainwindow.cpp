@@ -9,6 +9,7 @@
 #include "../math_lib.h"
 #include <iostream>
 #include <string.h>
+#include <cmath>
 #include <QKeyEvent>
 
 
@@ -151,6 +152,41 @@ void MainWindow::on_point_clicked()
         insert_to_screen('.');
 }
 
+double tryCompute(double (*op)(double,double),
+                double op1, double op2,
+                QString *msg, QString customMsg = QString()) {
+
+    double result = 0.0;
+
+    try {
+        result = op(op1, op2);
+    } catch(std::runtime_error errMsg) {
+        if(customMsg.isNull())
+            *msg = QString(errMsg.what());
+        else
+            *msg = customMsg;
+    }
+
+    return result;
+}
+
+double tryCompute(double (*op)(double), double op1,
+                QString *msg, QString customMsg = QString()) {
+
+    double result = 0.0;
+
+    try {
+        result = op(op1);
+    } catch(std::runtime_error errMsg) {
+        if(customMsg.isNull())
+            *msg = QString(errMsg.what());
+        else
+            *msg = customMsg;
+    }
+
+    return result;
+}
+
 void MainWindow::on_result_clicked()
 {
     if(!currentOperation)
@@ -175,44 +211,36 @@ void MainWindow::on_result_clicked()
             result = mult(operand1, operand2);
             break;
         case Division:
-            if(operand2 == 0){
-                content = "Cannot divide by 0";
-                update_screen();
-                content="";
-                resultShown = true;
-                return;
-            }
-            result = div(operand1, operand2);
+            result = tryCompute(div, operand1, operand2, &content, "Division By 0!");
             break;
         case Power:
-            result = f_pow(operand1, operand2);
+            result = tryCompute(f_pow, operand1, operand2, &content);
             break;
         case Root:
-            result = root(operand1, operand2);
+            result = tryCompute(root, operand1, operand2, &content);
             break;
         case Factorial:
-            result = fact(operand1);
+            result = tryCompute(fact, operand1, &content);
             break;
         case Modulo:
-            result = modulo(operand1, operand2);
+            result = tryCompute(modulo, operand1, operand2, &content, "Modulo By 0!");
             break;
         case None:
             return;
     }
     resultShown = true;
-    if(isnan(result)){
-        content = "";
-        update_screen("Not a number");
-    }else if(isinf(result)){
+    if(!content.isEmpty()) {
+        update_screen();
+    }
+    else if(std::isinf(result)){
         content = "";
         update_screen("Infinity");
-    }else{
+    }
+    else{
         QString resQString = QString::number(result);
         content = resQString;
         update_screen();
     }
-
-
 }
 
 void MainWindow::on_addition_clicked()
