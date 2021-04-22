@@ -28,7 +28,7 @@
  * @param num2 second number to add
  * @return result of addition
  */
-double add(const double num1, const double num2) {
+long double add(const double num1, const double num2) {
   return num1 + num2;
 }
 
@@ -38,7 +38,7 @@ double add(const double num1, const double num2) {
  * @param num2 subtrahend
  * @return difference of num1 and num2
  */
-double sub(const double num1, const double num2) {
+long double sub(const double num1, const double num2) {
   return num1 - num2;
 }
 
@@ -48,7 +48,7 @@ double sub(const double num1, const double num2) {
  * @param num2 second number to multiply
  * @return result of multiplication
  */
-double mult(const double num1, const double num2) {
+long double mult(const double num1, const double num2) {
   return num1 * num2;
 }
 
@@ -58,7 +58,7 @@ double mult(const double num1, const double num2) {
  * @param num2 divisor
  * @return result of division
  */
-double div(const double num1, const double num2) {
+long double div(const double num1, const double num2) {
 	if(num2 == 0) {
 		throw std::runtime_error("Error, Not Defined");	
 	}
@@ -75,16 +75,16 @@ double div(const double num1, const double num2) {
  */
 long double fact(const double num) {
 	
-	//Check for factorial so stack doesn't overflow
-	if(pow(2,num) == std::numeric_limits<double>::infinity()) {
-		return std::numeric_limits<double>::infinity();	
-	}
-	
 	if(num < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
 	if(fmod(num, 1) != 0.0) {
 		throw std::runtime_error("Error, Only Integers");
+	}
+	
+	//Check if the number would overflow stack or not
+	if(pow(2,num) == std::numeric_limits<double>::infinity()) {
+		return std::numeric_limits<double>::infinity();	
 	}
 	
 	if(num > 1){
@@ -104,7 +104,7 @@ long double fact(const double num) {
  * @param exp natural exponent
  * @return result of exponentiation
  */
-double f_pow(const double base, const double exp) {
+long double f_pow(const double base, const double exp) {
 	if(exp < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
@@ -129,7 +129,7 @@ double f_pow(const double base, const double exp) {
  * @param exp natural number which specifies the root
  * @return root of number in argument
  */
-double root(const double base, const double exp) {
+long double root(const double base, const double exp) {
 	if(exp <= 0 ||(base < 0 && fmod(exp, 2) == 0)) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
@@ -155,7 +155,7 @@ double root(const double base, const double exp) {
  * @param num2 natural divisor
  * @return remainder of division
  */
-double modulo(const double num1, const double num2) {
+long double modulo(const double num1, const double num2) {
 	if(num2 == 0) {
 		throw std::runtime_error("Error, Not Defined");
 	}

@@ -25,7 +25,7 @@
  * @param num2 second number to add
  * @return result of addition
  */
-extern double add(const double num1, const double num2);
+extern long double add(const double num1, const double num2);
 
 /**
  * @brief Arithmetic subtraction of two doubles (num1 - num2)
@@ -33,7 +33,7 @@ extern double add(const double num1, const double num2);
  * @param num2 subtrahend
  * @return difference of num1 and num2
  */
-extern double sub(const double num1, const double num2);
+extern long double sub(const double num1, const double num2);
 
 /**
  * @brief Arithmetic multiplication of two doubles
@@ -41,7 +41,7 @@ extern double sub(const double num1, const double num2);
  * @param num2 second number to multiply
  * @return result of multiplication
  */
-extern double mult(const double num1, const double num2);
+extern long double mult(const double num1, const double num2);
 
 /**
  * @brief Arithmetic division of two doubles
@@ -49,7 +49,7 @@ extern double mult(const double num1, const double num2);
  * @param num2 divisor
  * @return result of division
  */
-extern double div(const double num1, const double num2);
+extern long double div(const double num1, const double num2);
 
 /**
  * @brief Product of all integers less or equal to num (factorial)
@@ -64,7 +64,7 @@ extern long double fact(const double num);
  * @param exp natural exponent
  * @return result of exponentiation
  */
-extern double f_pow(const double base, const double exp);
+extern long double f_pow(const double base, const double exp);
 
 /**
  * @brief Calculates general root of a base number 
@@ -72,7 +72,7 @@ extern double f_pow(const double base, const double exp);
  * @param exp natural number which specifies the root
  * @return root of number in argument
  */
-extern double root(const double base, const double exp);
+extern long double root(const double base, const double exp);
 
 /**
  * @brief Calculates modulo of two numbers
@@ -80,7 +80,7 @@ extern double root(const double base, const double exp);
  * @param num2 natural divisor
  * @return remainder of division
  */
-extern double modulo(const double num1, const double num2);
+extern long double modulo(const double num1, const double num2);
 
 #endif //__MATH_LIB__
 
