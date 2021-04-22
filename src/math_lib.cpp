@@ -20,6 +20,7 @@
 
 #include <stdexcept>
 #include <cmath>
+#include <limits>
 
 /**
  * @brief Arithmetic addition of two doubles
@@ -72,7 +73,13 @@ double div(const double num1, const double num2) {
  * @param num number, from which is factorial made
  * @return factorial numbers from parameter
  */
-double fact(const double num) {	
+long double fact(const double num) {
+	
+	//Check for factorial so stack doesn't overflow
+	if(pow(2,num) == std::numeric_limits<double>::infinity()) {
+		return std::numeric_limits<double>::infinity();	
+	}
+	
 	if(num < 0) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
