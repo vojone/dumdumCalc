@@ -5,7 +5,7 @@
  *  Decription: TDD test for mathematical library, which is used in Calculator
  * 
  *      Authors: Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
- *                        Last change: 15. 4. 2021
+ *                        Last change: 22. 4. 2021
  * 
  * ***************************************************************************/
 
@@ -152,6 +152,12 @@ TEST(errHandling, fact) {
   ASSERT_ANY_THROW(fact(4.2));
 
   ASSERT_TRUE(std::isinf(fact(1000)));
+}
+
+/*** Checks if lib prevents overflow at huge numbers (because of recursion)***/
+TEST(errHandling, factStackOver) {
+  ASSERT_TRUE(std::isinf(fact(99999999)));
+  ASSERT_TRUE(std::isinf(fact(123456789)));
 }
 
 /***                             POW TESTS                                 ***/
