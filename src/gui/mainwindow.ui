@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>860</height>
+    <width>580</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,7 @@
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -93,7 +93,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -135,7 +135,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -180,7 +180,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -221,7 +221,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -266,7 +266,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -307,7 +307,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -352,7 +352,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -411,7 +411,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -452,7 +452,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -493,7 +493,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -538,7 +538,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -579,7 +579,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -620,7 +620,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -661,7 +661,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -706,7 +706,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -751,7 +751,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -796,7 +796,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -838,7 +838,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -880,7 +880,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -921,7 +921,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>20</pointsize>
           <weight>12</weight>
           <bold>false</bold>
@@ -966,7 +966,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -1052,7 +1052,7 @@ p, li { white-space: pre-wrap; }
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -1093,7 +1093,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Poppins</family>
+          <family>Poppins,Roboto,sans-serif</family>
           <pointsize>24</pointsize>
          </font>
         </property>
@@ -1127,8 +1127,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
-     <height>26</height>
+     <width>580</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">

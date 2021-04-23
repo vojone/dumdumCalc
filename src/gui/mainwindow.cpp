@@ -81,10 +81,15 @@ void MainWindow::update_screen(){
             ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
-            QString op2str = NUM2QSTR(operand2);
-            if(operand2 < 0)
-                op2str = "("+op2str+")";
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            if(currentOperation == Factorial) {
+                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            }
+            else {
+                QString op2str = NUM2QSTR(operand2);
+                if(operand2 < 0)
+                    op2str = "("+op2str+")";
+                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            }
         }
     }
     else
@@ -101,12 +106,18 @@ void MainWindow::update_screen(QString newContent){
             ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
-            QString op2str = NUM2QSTR(operand2);
-            if(operand2 < 0)
-                op2str = "("+op2str+")";
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            if(currentOperation == Factorial) {
+                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            }
+            else {
+                QString op2str = NUM2QSTR(operand2);
+                if(operand2 < 0)
+                    op2str = "("+op2str+")";
+                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+            }
         }
-    }else
+    }
+    else
         ui->textEdit->setPlainText(newContent);
 }
 
