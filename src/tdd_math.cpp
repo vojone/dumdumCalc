@@ -151,7 +151,7 @@ TEST(errHandling, fact) {
   ASSERT_ANY_THROW(fact(-50));
   ASSERT_ANY_THROW(fact(4.2));
 
-  ASSERT_TRUE(std::isinf(fact(1000)));
+  ASSERT_TRUE(std::isinf(fact(1200)));
 }
 
 /*** Checks if lib prevents overflow at huge numbers (because of recursion)***/
