@@ -220,5 +220,11 @@ private:
      * @param new_color string which describes color (it excepts every format which excepts HTML)
      */
     void change_color(QString new_color);
+
+    /**
+     * @brief Solves, whether is number +/- infinity and then shows it on the display
+     * @param number result which represents infinity
+     */
+    void resIsInf(double number);
 };
 #endif // MAINWINDOW_H

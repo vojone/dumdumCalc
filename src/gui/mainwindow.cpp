@@ -23,6 +23,14 @@
 #include <cmath>
 #include <QKeyEvent>
 
+#define SHOW_NUM 12
+#define INF_COLOR "blue"
+#define ERR_COLOR "red"
+
+
+#define NUM2QSTR(num) (QString().setNum(num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
+
+
 /**
  * @brief MainWindow::~MainWindow MainWindow ctor
  */
@@ -69,13 +77,14 @@ void MainWindow::insert_to_screen(char digit){
  */
 void MainWindow::update_screen(){
     if(currentOperation != None){
-        if(!resultShown)
-            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+"<h1 style='margin-top:-10px'>"+content+"</h1>");
+        if(!resultShown) {
+            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+        }
         else{
-            QString op2str = QString::number(operand2);
+            QString op2str = NUM2QSTR(operand2);
             if(operand2 < 0)
                 op2str = "("+op2str+")";
-            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+op2str+"=<h1 style='margin-top:-10px'>"+content+"</h1>");
+            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
     }
     else
@@ -88,13 +97,14 @@ void MainWindow::update_screen(){
  */
 void MainWindow::update_screen(QString newContent){
     if(currentOperation != None){
-        if(!resultShown)
-            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+"<h1 style='margin-top:-10px'>"+newContent+"</h1>");
+        if(!resultShown) {
+            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+        }
         else{
-            QString op2str = QString::number(operand2);
+            QString op2str = NUM2QSTR(operand2);
             if(operand2 < 0)
                 op2str = "("+op2str+")";
-            ui->textEdit->setHtml(QString::number(operand1)+currentOperationSymbol+op2str+"=<h1 style='margin-top:-10px'>"+newContent+"</h1>");
+            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
     }else
         ui->textEdit->setPlainText(newContent);
@@ -282,6 +292,21 @@ double tryCompute(double (*op)(double), double op1,
 }
 
 /**
+ * @brief Solves, whether is number +/- infinity
+ * @param number result which represents infinity
+ */
+void MainWindow::resIsInf(double number) {
+    if(number < 0)
+        content = "-Infinity";
+    else
+        content = "+Infinity";
+
+    update_screen();
+
+    change_color(INF_COLOR);
+}
+
+/**
  * @brief Calls functions from the Math Library and shows the result
  */
 void MainWindow::on_result_clicked()
@@ -328,16 +353,13 @@ void MainWindow::on_result_clicked()
     resultShown = true;
     if(!content.isEmpty()) {
         update_screen();
-        change_color("red");
+        change_color(ERR_COLOR);
     }
     else if(std::isinf(result)){
-        content = "";
-        update_screen("Infinity");
-        change_color("blue");
+        resIsInf(result);
     }
     else{
-        QString resQString = QString::number(result);
-        content = resQString;
+        content = NUM2QSTR(result);
         update_screen();
     }
 }
