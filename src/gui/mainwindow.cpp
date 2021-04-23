@@ -516,6 +516,21 @@ void MainWindow::close_calc(bool ask = true) {
  */
 void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
+    if(ev->modifiers() && ev->modifiers() == Qt::ShiftModifier) { //key + shift
+        switch (ev->key()) {
+            case Qt::Key_Exclam:
+                on_factiorial_clicked();
+                return;
+            case Qt::Key_Percent:
+                on_modulo_clicked();
+                return;
+            case Qt::Key_BracketLeft:
+                on_modulo_clicked();
+                return;
+        }
+    }
+
+    //key
     switch (ev->key()) {
         case Qt::Key_0:
             on_digit0_clicked();
@@ -576,11 +591,20 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         case Qt::Key_Period:
             on_point_clicked();
             break;
+        case Qt::Key_R:
+            on_root_clicked();
+            break;
+        case Qt::Key_S:
+            on_changeSign_clicked();
+            break;
+        case Qt::Key_P:
+            on_power_clicked();
+            break;
         case Qt::Key_Escape:
             close_calc(true);
             break;
         case Qt::Key_F1:
             show_help();
             break;
-    }
+    }//switch()
 }
