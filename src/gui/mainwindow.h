@@ -226,5 +226,11 @@ private:
      * @param number result which represents infinity
      */
     void resIsInf(double number);
+
+    /**
+     * @brief close_calc Closes calc window and all its children (help window)
+     * @param ask flag that switch if you want to show message in question box
+     */
+    void close_calc(bool ask);
 };
 #endif // MAINWINDOW_H

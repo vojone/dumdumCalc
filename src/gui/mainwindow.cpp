@@ -22,6 +22,7 @@
 #include <string.h>
 #include <cmath>
 #include <QKeyEvent>
+#include <QMessageBox>
 
 #define SHOW_NUM 12
 #define INF_COLOR "blue"
@@ -492,6 +493,24 @@ void MainWindow::on_changeSign_clicked()
 }
 
 /**
+ * @brief close_calc Closes calc window and all its children (help window)
+ * @param ask flag that switch if you want to show question in question box
+ */
+void MainWindow::close_calc(bool ask = true) {
+    if(ask) {
+        QMessageBox::StandardButton choice;
+        QString message = "Are you sure, you want to close dumdum Calculator app?\n";
+        choice = QMessageBox::question(this, "Exit", message);
+
+        if(choice == QMessageBox::No) {
+            return;
+        }
+    }
+
+    this->close();
+}
+
+/**
  * @brief handles key press events at the main window
  * @param *event The event which will be checked if an important key was pressed
  */
@@ -556,6 +575,12 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         case Qt::Key_Comma:
         case Qt::Key_Period:
             on_point_clicked();
+            break;
+        case Qt::Key_Escape:
+            close_calc(true);
+            break;
+        case Qt::Key_F1:
+            show_help();
             break;
     }
 }
