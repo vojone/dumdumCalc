@@ -13,3 +13,6 @@ src/build/
 
 #ignore temp file created by VSC
 .vscode
+
+#ignore documentation folder
+Documentation

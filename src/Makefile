@@ -27,13 +27,13 @@ all:
 pack:
 
 clean:
-	rm -f $(O_PATH)*
+	rm -rf $(O_PATH)* Dokumentace
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN)
 	./$(O_PATH)$(TEST_BIN)
 
 doc:
-
+	doxygen
 run:
 
 profile: CXXFLAGS := -O2 $(CXXFLAGS)

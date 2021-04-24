@@ -10,7 +10,7 @@
  * ***************************************************************************/
 
 /**
- * @file math_libtest.h
+ * @file tdd_math.cpp
  * 
  * @brief TDD test for mathematical library, which is used in calculator
  * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
