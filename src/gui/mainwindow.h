@@ -200,7 +200,7 @@ private:
      * @brief Overload which Edits the variable storing the operand value and updates the display
      * @param str QString which will be appended to the screen!
      */
-    void MainWindow::insert_to_screen(QString str);
+    void insert_to_screen(QString str);
 
     /**
      * @brief Sets the operation type and appends the operation symbol to the display
