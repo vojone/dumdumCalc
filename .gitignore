@@ -92,3 +92,6 @@ src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*
 
 src/build-gui-Desktop-Debug/
 src/gui/CMakeLists.txt.user*
+
+#ignore documentation folder
+Documentation
