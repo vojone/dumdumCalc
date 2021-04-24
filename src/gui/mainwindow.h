@@ -232,5 +232,12 @@ private:
      * @param ask flag that switch if you want to show message in question box
      */
     void close_calc(bool ask);
+
+    /**
+     * @brief is_numeric Checks if passed QString is a number
+     * @param str The QString which is going to be checked for a number
+     * @return returns true if the string is a numeric value, otherwise false
+     */
+    bool is_numeric(QString str);
 };
 #endif // MAINWINDOW_H

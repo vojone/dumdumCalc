@@ -137,6 +137,7 @@ void MainWindow::change_color(QString new_color) {
  * @param symbol The symbol of the operation which will be appended to the display
  */
 void MainWindow::set_operation(Operation op, QString symbol){
+    //allows continous operation (starting another operation without hitting enter)
     if(operand1 && currentOperation != None && !resultShown){
         //resultShown = false;
         on_result_clicked();
@@ -144,10 +145,12 @@ void MainWindow::set_operation(Operation op, QString symbol){
     operand1 = content.toDouble();
     currentOperation = op;
     currentOperationSymbol = symbol;
-    content="";
 
     resultShown = false;
-    update_screen();
+    if(currentOperation != Factorial){
+        content="";
+        update_screen();
+    }
 }
 
 /**
@@ -331,6 +334,10 @@ void MainWindow::on_result_clicked()
         operand2 = content.toDouble();
     else
         operand1 = content.toDouble();
+    fprintf(stderr,"The current vals are: o1: %f, o2 %f, content %s\n", operand1, operand2, content.toStdString().c_str());
+    if(!is_numeric(content) || content == "+Infinity" || content == "-Infinity"){
+        return;
+    }
     content = "";
     double result = 0;
     switch (currentOperation) {
@@ -474,6 +481,8 @@ void MainWindow::on_backspace_clicked()
     char toBeRemoved = content.toStdString().at(len-1);
     if(!isdigit(toBeRemoved) && toBeRemoved != '.')
         return;
+    if(resultShown)
+        return;
     content = content.left(len-1);
     update_screen();
 }
@@ -511,6 +520,17 @@ void MainWindow::close_calc(bool ask = true) {
 }
 
 /**
+ * @brief is_numeric Checks if passed QString is a number
+ * @param str The QString which is going to be checked for a number
+ * @return returns true if the string is a numeric value, otherwise false
+ */
+bool MainWindow::is_numeric(QString str) {
+    bool isNum = true;
+    str.toDouble(&isNum);
+    return isNum;
+}
+
+/**
  * @brief handles key press events at the main window
  * @param *event The event which will be checked if an important key was pressed
  */
@@ -527,6 +547,12 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
             case Qt::Key_BracketLeft:
                 on_modulo_clicked();
                 return;
+        }
+    }else if(ev->modifiers() && ev->modifiers() == Qt::ControlModifier) {
+        switch (ev->key()) {
+            case Qt::Key_V:
+                //content="Paste";
+                update_screen();
         }
     }
 
