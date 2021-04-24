@@ -1,0 +1,12 @@
+Package: DumdumCalc
+Version: 1.0
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 1024
+Maintainer: dumdum
+Build-Depends: libqt5gui5
+Description: Calculator
+ IVS project 2 calculator by team dumdum
+Icon:/usr/share/calculator.ico

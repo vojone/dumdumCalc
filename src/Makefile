@@ -34,10 +34,16 @@ all:
 pack:
 
 clean:
-	rm -rf $(O_PATH)*
+	rm -rf $(O_PATH)* dumdumCalc.deb dumdumCalc/usr/bin/calculator gui/calculator gui/calculator_autogen gui/calculator_en_US.ts gui/CMakeCache.txt gui/CMakeFiles gui/cmake_install.cmake
 
-test: $(O_PATH) $(O_PATH)$(TEST_BIN)
+test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
 	./$(O_PATH)$(TEST_BIN)
+	
+install:
+	cmake gui/CMakeLists.txt
+	make -C gui
+	cp gui/calculator dumdumCalc/usr/bin
+	dpkg-deb --build dumdumCalc
 
 doc:
 
