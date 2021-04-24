@@ -23,6 +23,7 @@
 #include <cmath>
 #include <QKeyEvent>
 #include <QMessageBox>
+#include <QClipboard>
 
 #define SHOW_NUM 12
 #define INF_COLOR "blue"
@@ -70,6 +71,20 @@ void MainWindow::insert_to_screen(char digit){
     }
     content+=digit;
     //ui->textEdit->setPlainText(content);
+    update_screen();
+}
+
+/**
+ * @brief Overload which Edits the variable storing the operand value and updates the display
+ * @param str QString which will be appended to the screen!
+ */
+void MainWindow::insert_to_screen(QString str){
+    if(resultShown){
+        resultShown = false;
+        content = "";
+        currentOperation = None;
+    }
+    content+=str;
     update_screen();
 }
 
@@ -334,7 +349,7 @@ void MainWindow::on_result_clicked()
         operand2 = content.toDouble();
     else
         operand1 = content.toDouble();
-    fprintf(stderr,"The current vals are: o1: %f, o2 %f, content %s\n", operand1, operand2, content.toStdString().c_str());
+    //fprintf(stderr,"The current vals are: o1: %f, o2 %f, content %s\n", operand1, operand2, content.toStdString().c_str());
     if(!is_numeric(content) || content == "+Infinity" || content == "-Infinity"){
         return;
     }
@@ -550,9 +565,13 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         }
     }else if(ev->modifiers() && ev->modifiers() == Qt::ControlModifier) {
         switch (ev->key()) {
-            case Qt::Key_V:
-                //content="Paste";
-                update_screen();
+            case Qt::Key_V: //allows pasting numbers
+
+                QString clipboardContent = QApplication::clipboard()->text();
+
+                if(!is_numeric(clipboardContent))
+                    return;
+                insert_to_screen(clipboardContent);
         }
     }
 
