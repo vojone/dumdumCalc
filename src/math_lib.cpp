@@ -24,9 +24,9 @@
 
 /**
  * @brief Arithmetic addition of two doubles
- * @param num1 first number to add
- * @param num2 second number to add
- * @return result of addition
+ * @param num1 is first term
+ * @param num2 is second term
+ * @return sum of num1 and num2
  */
 long double add(const double num1, const double num2) {
   return num1 + num2;
@@ -44,9 +44,9 @@ long double sub(const double num1, const double num2) {
 
 /**
  * @brief Arithmetic multiplication of two doubles
- * @param num1 first number to multiply
- * @param num2 second number to multiply
- * @return result of multiplication
+ * @param num1 is multiplier
+ * @param num2 is multiplicand
+ * @return product of num1 and num2
  */
 long double mult(const double num1, const double num2) {
   return num1 * num2;
@@ -54,9 +54,9 @@ long double mult(const double num1, const double num2) {
 
 /**
  * @brief Arithmetic division of two doubles
- * @param num1 divident
- * @param num2 divisor
- * @return result of division
+ * @param num1 is divident
+ * @param num2 is divisor
+ * @return fraction of num1 and num2
  */
 long double div(const double num1, const double num2) {
 	if(num2 == 0) {
@@ -71,7 +71,7 @@ long double div(const double num1, const double num2) {
 /**
  * @brief Product of all integers less or equal to num (factorial)
  * @param num number, from which is factorial made
- * @return factorial numbers from parameter
+ * @return factorial of num
  */
 long double fact(const double num) {
 	
@@ -102,7 +102,7 @@ long double fact(const double num) {
  * @brief Exponetiation with real base and natural exponent
  * @param base (real) number which is base for exponetiation
  * @param exp natural exponent
- * @return result of exponentiation
+ * @return power of base to the exponent
  */
 long double f_pow(const double base, const double exp) {
 	if(exp < 0) {
@@ -124,27 +124,27 @@ long double f_pow(const double base, const double exp) {
 }
 
 /**
- * @brief Calculates general root of a base number 
- * @param base (real) number from which is found root
- * @param exp natural number which specifies the root
- * @return root of number in argument
+ * @brief Calculates general root of a radicant to the Nth degree
+ * @param radicant (real) number from which root is specified
+ * @param degree natural number which specifies the root
+ * @return root of radicant to the degree
  */
-long double root(const double base, const double exp) {
-	if(exp <= 0 ||(base < 0 && fmod(exp, 2) == 0)) {
+long double root(const double radicant, const double degree) {
+	if(exp <= 0 ||(radicant < 0 && fmod(degree, 2) == 0)) {
 		throw std::runtime_error("Error, Only Positive Numbers");
 	}
-	else if(fmod(exp, 1) != 0.0) {
+	else if(fmod(degree, 1) != 0.0) {
 		throw std::runtime_error("Error, Only Integers");
 	}
 	
 	else {
-		double exp_dbl = exp;
+		double deg_dbl = degree;
 		
-		if(base < 0 && fmod(exp, 2) == 1){
-			return -pow(-base, 1/exp_dbl);
+		if(base < 0 && fmod(degree, 2) == 1){
+			return -pow(-radicant, 1/deg_dbl);
 		}
 		else {
-			return pow(base, 1/exp_dbl);
+			return pow(radicant, 1/deg_dbl);
 		}
 	}
 }

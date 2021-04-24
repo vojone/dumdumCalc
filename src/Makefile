@@ -10,7 +10,7 @@ PROF_SAMPLE = profiling_sample
 
 #name of folder in which is gui implementation
 GUI_DIR = gui/
-
+DOC_DIR = Documentation
 
 #output path
 O_PATH = build/
@@ -28,18 +28,19 @@ LDLIBS=-lm
 
 CMAKEFLAGS :=
 
-.PHONY: all pack clean test doc run profile callgrind debug
+.PHONY: all pack clean test doc run profile install callgrind debug
 all:
 
 pack:
 
 clean:
-	rm -rf $(O_PATH)*
+	rm -rf $(O_PATH)* $(DOC_DIR)
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN)
 	./$(O_PATH)$(TEST_BIN)
 
 doc:
+	doxygen
 
 run: $(O_PATH) $(O_PATH)$(APP_BIN)
 	./$(O_PATH)$(APP_BIN)
