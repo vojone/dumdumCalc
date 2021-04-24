@@ -10,6 +10,7 @@ src/build/
 
 !profiling/*.out
 !profiling/*.pdf
+!dokumentace.pdf
 
 #ignore temp file created by VSC
 .vscode
