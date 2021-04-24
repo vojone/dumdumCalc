@@ -3,8 +3,13 @@ MATH_LIB_NAME = math_lib
 
 TEST_BIN = tdd_math
 
+APP_BIN = calculator
+
 PROF_NAME = math_prof
 PROF_SAMPLE = profiling_sample
+
+#name of folder in which is gui implementation
+GUI_DIR = gui/
 
 
 #output path
@@ -21,25 +26,35 @@ CXXFLAGS := -Werror -Wall -pedantic -std=c++11
 CC = g++
 LDLIBS=-lm
 
-.PHONY: all pack clean test doc run profile callgrind
+CMAKEFLAGS :=
+
+.PHONY: all pack clean test doc run profile callgrind debug
 all:
 
 pack:
 
 clean:
-	rm -f $(O_PATH)*
+	rm -rf $(O_PATH)*
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN)
 	./$(O_PATH)$(TEST_BIN)
 
 doc:
 
-run:
+run: $(O_PATH) $(O_PATH)$(APP_BIN)
+	./$(O_PATH)$(APP_BIN)
+	
 
 profile: CXXFLAGS := -O2 $(CXXFLAGS)
 profile: LDFLAGS := -O2 $(LDFLAGS)
 profile: $(O_PATH) $(O_PATH)$(PROF_NAME)
 	./$(O_PATH)$(PROF_NAME) < $(PROF_SAMPLE)
+
+#-------------------------------APP DEBUG--------------------------------------
+
+debug: CMAKEFLAGS := -DCMAKE_BUILD_TYPE=Debug $(CMAKEFLAGS)
+debug: $(O_PATH) $(O_PATH)$(APP_BIN)
+	gdb -tui $(O_PATH)$(APP_BIN)
 
 #-------------------------------PROFILING--------------------------------------
 
@@ -65,6 +80,12 @@ $(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
 #cmake is used (due to instructions in googlest-master/googletest/README.md)
 $(TEST_DIR)lib/%.a :
 	cd $(TEST_DIR) && cmake .. && make -s
+	
+#--------------------------------APP BUILD------------------------------------
+
+$(O_PATH)$(APP_BIN):
+	cd $(O_PATH) && cmake $(CMAKEFLAGS) ../$(GUI_DIR). 
+	cd $(O_PATH) && make -s
 
 #------------------------------GENERAL TARGETS---------------------------------
 

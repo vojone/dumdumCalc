@@ -13,3 +13,82 @@ src/build/
 
 #ignore temp file created by VSC
 .vscode
+
+# This file is used to ignore files which are generated
+# ----------------------------------------------------------------------------
+
+*~
+*.autosave
+*.a
+*.core
+*.moc
+*.o
+*.obj
+*.orig
+*.rej
+*.so
+*.so.*
+*_pch.h.cpp
+*_resource.rc
+*.qm
+.#*
+*.*#
+core
+!core/
+tags
+.DS_Store
+.directory
+*.debug
+#Makefile*
+*.prl
+*.app
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+Thumbs.db
+*.res
+*.rc
+/.qmake.cache
+/.qmake.stash
+
+# qtcreator generated files
+*.pro.user*
+
+# xemacs temporary files
+*.flc
+
+# Vim temporary files
+.*.swp
+
+# Visual Studio generated files
+*.ib_pdb_index
+*.idb
+*.ilk
+*.pdb
+*.sln
+*.suo
+*.vcproj
+*vcproj.*.*.user
+*.ncb
+*.sdf
+*.opensdf
+*.vcxproj
+*vcxproj.*
+
+# MinGW generated files
+*.Debug
+*.Release
+
+# Binaries
+# --------
+*.dll
+*.exe
+
+# QT run and debug files
+src/gui/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/*
+src/gui/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*
+src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Debug/*
+src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*
+
+src/build-gui-Desktop-Debug/
+src/gui/CMakeLists.txt.user*
