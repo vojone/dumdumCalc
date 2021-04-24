@@ -351,6 +351,7 @@ void MainWindow::on_result_clicked()
         operand1 = content.toDouble();
     //fprintf(stderr,"The current vals are: o1: %f, o2 %f, content %s\n", operand1, operand2, content.toStdString().c_str());
     if(!is_numeric(content) || content == "+Infinity" || content == "-Infinity"){
+        resultShown = true;
         return;
     }
     content = "";
