@@ -25,7 +25,7 @@
 #include <QMessageBox>
 #include <QClipboard>
 
-#define SHOW_NUM 15
+#define SHOW_NUM 12
 #define INF_COLOR "blue"
 #define ERR_COLOR "red"
 
@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit->alignment();
     ui->textEdit->setFontPointSize(32);
     ui->textEdit->setReadOnly(true);
+    ui->textEdit->setWordWrapMode(QTextOption::NoWrap);
     currentOperation = None;
 
     connect(ui->menuMenu, SIGNAL(aboutToShow()), this, SLOT(show_help()));
@@ -74,6 +75,7 @@ void MainWindow::insert_to_screen(char digit){
     update_screen();
 }
 
+
 /**
  * @brief Overload which Edits the variable storing the operand value and updates the display
  * @param str QString which will be appended to the screen!
@@ -89,22 +91,35 @@ void MainWindow::insert_to_screen(QString str){
 }
 
 /**
+ * @brief putIntoBraces puts text into braces if it is in scientific notation
+ * @param operand text to be controlled
+ * @return original text if its not in scientific notation or in braces if it is
+ */
+QString MainWindow::putIntoBraces(QString operand) {
+    if(operand.indexOf("e") >= 0) {
+        operand = "("+operand+")";
+    }
+
+    return operand;
+}
+
+/**
  * @brief Updates the display content
  */
 void MainWindow::update_screen(){
     if(currentOperation != None){
         if(!resultShown) {
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+            ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
             if(currentOperation == Factorial) {
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
             else {
-                QString op2str = NUM2QSTR(operand2);
+                QString op2str = putIntoBraces(NUM2QSTR(operand2));
                 if(operand2 < 0)
                     op2str = "("+op2str+")";
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
         }
     }
@@ -119,17 +134,17 @@ void MainWindow::update_screen(){
 void MainWindow::update_screen(QString newContent){
     if(currentOperation != None){
         if(!resultShown) {
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+            ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
             if(currentOperation == Factorial) {
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
             else {
-                QString op2str = NUM2QSTR(operand2);
+                QString op2str = putIntoBraces(NUM2QSTR(operand2));
                 if(operand2 < 0)
                     op2str = "("+op2str+")";
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
         }
     }

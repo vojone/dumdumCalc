@@ -179,6 +179,13 @@ private:
     /** \brief The current selected operation symbol */
     QString currentOperationSymbol;
 
+    /**
+     * @brief putIntoBraces puts text into braces if it is in scientific notation
+     * @param operand text to be controlled
+     * @return original text if its not in scientific notation or in braces if it is
+     */
+    QString putIntoBraces(QString operand);
+
     /** \brief Operand 1 */
     double operand1;
 
