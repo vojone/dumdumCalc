@@ -10,11 +10,8 @@ PROF_SAMPLE = profiling_sample
 
 #name of folder in which is gui implementation
 GUI_DIR = gui/
-<<<<<<< HEAD
+
 DOC_DIR = Documentation
-=======
-DOC_DIR = documentation
->>>>>>> e40c99ffdcc665f1b48831378560c0741a303664
 
 #output path
 O_PATH = build/
@@ -80,12 +77,13 @@ callgrind: profile
 #----------------------------TEST COMPILATION----------------------------------
 
 #linking binary with test
+$(O_PATH)$(TEST_BIN) : LDLIBS := -L$(TEST_DIR)lib -lgtest -lpthread $(LDLIBS)
+$(O_PATH)$(TEST_BIN) : LDFLAGS := -L$(TEST_DIR)lib
 $(O_PATH)$(TEST_BIN) : $(O_PATH)$(TEST_BIN).o $(O_PATH)$(MATH_LIB_NAME).o
-	$(CC) -o $@ $^ -L$(TEST_DIR)lib -lgtest -lpthread $(LDLIBS)
 
 #compilation of obj file with test
+$(O_PATH)$(TEST_BIN).o : CXXFLAGS := $(CXXFLAGS) -I$(TEST_DIR)include
 $(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
-	$(CXX) $(CXXFLAGS) -c -o $@ $< -I$(TEST_DIR)include
 
 #compilation of the lib (.a) with google test (if it is not compilated)
 #cmake is used (due to instructions in googlest-master/googletest/README.md)
