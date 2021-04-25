@@ -2,7 +2,7 @@
 Name=dumdumCalc 
 Exec=/usr/bin/calculator
 Terminal=false
-Icon=/usr/share/calculator.ico
+Icon=/usr/share/icons/dumdumcalc.png
 Type=Application
 Categories=Application;
 Comment=DumdumCalculator
