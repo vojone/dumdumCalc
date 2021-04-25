@@ -10,6 +10,8 @@ PROF_SAMPLE = profiling_sample
 
 #name of folder in which is gui implementation
 GUI_DIR = gui/
+
+#name of folder with generated documentation
 DOC_DIR = Documentation
 
 #output path
@@ -34,7 +36,7 @@ all:
 pack:
 
 clean:
-	rm -rf $(O_PATH)* dumdumCalc.deb dumdumCalc/usr/bin/calculator gui/calculator gui/calculator_autogen gui/CMakeCache.txt gui/CMakeFiles gui/cmake_install.cmake
+	rm -rf $(O_PATH) $(DOC_DIR) dumdumCalc.deb dumdumCalc/usr/bin/calculator gui/calculator gui/calculator_autogen gui/CMakeCache.txt gui/CMakeFiles gui/cmake_install.cmake
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
 	./$(O_PATH)$(TEST_BIN)
