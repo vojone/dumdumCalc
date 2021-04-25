@@ -140,7 +140,7 @@ long double root(const double radicant, const double degree) {
 	else {
 		double deg_dbl = degree;
 		
-		if(base < 0 && fmod(degree, 2) == 1){
+        if(degree < 0 && fmod(degree, 2) == 1){
 			return -pow(-radicant, 1/deg_dbl);
 		}
 		else {

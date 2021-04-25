@@ -22,10 +22,17 @@
 #include <QMainWindow>
 #include "helpwindow.h"
 
+/**
+ * @brief Main namespace of user interface
+ * @note It includes MainWindow class and its children
+ */
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/**
+ * @brief The main window object with calculator app
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -231,7 +238,7 @@ private:
      * @brief Solves, whether is number +/- infinity and then shows it on the display
      * @param number result which represents infinity
      */
-    void resIsInf(double number);
+    void resIsInf(long double number);
 
     /**
      * @brief close_calc Closes calc window and all its children (help window)

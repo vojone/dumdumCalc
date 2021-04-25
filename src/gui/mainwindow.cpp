@@ -25,12 +25,12 @@
 #include <QMessageBox>
 #include <QClipboard>
 
-#define SHOW_NUM 12
+#define SHOW_NUM 15
 #define INF_COLOR "blue"
 #define ERR_COLOR "red"
 
 
-#define NUM2QSTR(num) (QString().setNum(num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
+#define NUM2QSTR(num) (QString().setNum((double)num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
 
 
 /**
@@ -277,7 +277,7 @@ void MainWindow::on_point_clicked()
  * @param customMsg custom message to be returned in msg parameter if there will be an error
  * @return results of calculation or zero
  */
-double tryCompute(double (*op)(double,double),
+long double tryCompute(long double (*op)(double,double),
                 double op1, double op2,
                 QString *msg, QString customMsg = QString()) {
 
@@ -304,7 +304,7 @@ double tryCompute(double (*op)(double,double),
  * @param customMsg custom message to be returned in msg parameter if there will be an error
  * @return results of calculation or zero (if there will be an error)
  */
-double tryCompute(double (*op)(double), double op1,
+long double tryCompute(long double (*op)(double), double op1,
                 QString *msg, QString customMsg = QString()) {
 
     double result = 0.0;
@@ -325,7 +325,7 @@ double tryCompute(double (*op)(double), double op1,
  * @brief Solves, whether is number +/- infinity
  * @param number result which represents infinity
  */
-void MainWindow::resIsInf(double number) {
+void MainWindow::resIsInf(long double number) {
     if(number < 0)
         content = "-Infinity";
     else
@@ -355,7 +355,7 @@ void MainWindow::on_result_clicked()
         return;
     }
     content = "";
-    double result = 0;
+    long double result = 0;
     switch (currentOperation) {
         case Addition:
             result = add(operand1, operand2);
