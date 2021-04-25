@@ -12,6 +12,7 @@ src/build/
 !profiling/*.pdf
 
 *.deb
+calculator
 
 #ignore temp file created by VSC
 .vscode
