@@ -9,4 +9,4 @@ Maintainer: dumdum
 Build-Depends: libqt5gui5
 Description: Calculator
  IVS project 2 calculator by team dumdum
-Icon:/usr/share/calculator.ico
+Icon:/usr/share/icons/dumdumcalc.png
