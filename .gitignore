@@ -11,6 +11,8 @@ src/build/
 !profiling/*.out
 !profiling/*.pdf
 
+*.deb
+
 #ignore temp file created by VSC
 .vscode
 
@@ -92,6 +94,7 @@ src/build-calculator-Desktop_x86_windows_msvc2017_pe_32bit-Release/*
 
 src/build-gui-Desktop-Debug/
 src/gui/CMakeLists.txt.user*
+src/gui/CMakeLists.txt.user
 
 #ignore documentation folder
 Documentation

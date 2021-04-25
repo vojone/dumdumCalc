@@ -3,7 +3,12 @@ MATH_LIB_NAME = math_lib
 
 TEST_BIN = tdd_math
 
+#name of app library
 APP_BIN = calculator
+
+#name of app and this version
+APP_NAME = dumdumCalc
+VERSION = 1.0.0
 
 PROF_NAME = math_prof
 PROF_SAMPLE = profiling_sample
@@ -32,19 +37,21 @@ CMAKEFLAGS :=
 .PHONY: all pack clean test doc run profile install callgrind debug
 all:
 
+
 pack:
+	
 
 clean:
-	rm -rf $(O_PATH) $(DOC_DIR) dumdumCalc.deb dumdumCalc/usr/bin/calculator gui/calculator gui/calculator_autogen gui/CMakeCache.txt gui/CMakeFiles gui/cmake_install.cmake
+	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)/usr/bin
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
 	./$(O_PATH)$(TEST_BIN)
 	
-install:
-	cmake gui/CMakeLists.txt
-	make -C gui
-	cp gui/calculator dumdumCalc/usr/bin
-	dpkg-deb --build dumdumCalc
+install: $(O_PATH)
+	cd $(O_PATH) && cmake ../$(GUI_DIR).
+	make -C $(O_PATH)
+	cp $(O_PATH)$(APP_BIN) $(APP_NAME)-$(VERSION)/usr/bin
+	dpkg-deb --build $(APP_NAME)-$(VERSION)
 
 doc:
 	doxygen

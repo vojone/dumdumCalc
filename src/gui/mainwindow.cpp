@@ -389,7 +389,7 @@ void MainWindow::on_result_clicked()
             result = tryCompute(f_pow, operand1, operand2, &content);
             break;
         case Root:
-            result = tryCompute(root, operand1, operand2, &content);
+            result = tryCompute(root, operand2, operand1, &content);
             break;
         case Factorial:
             result = tryCompute(fact, operand1, &content);

@@ -15,4 +15,4 @@ dumdum
 Licence
 -------
 
-Tento program je poskytovan s otevrenymi zdrojovymi texty pod licenci GNU GPLv1.
+Tento program je poskytovan s otevrenymi zdrojovymi texty pod licenci GNU GPLv3.
