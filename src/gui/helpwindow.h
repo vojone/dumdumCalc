@@ -26,6 +26,9 @@ namespace Ui {
 class HelpWindow;
 }
 
+/**
+ * @brief The HelpWindow class with help information
+ */
 class HelpWindow : public QDialog
 {
     Q_OBJECT
