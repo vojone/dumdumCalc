@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=dumdumCalc 
+Exec=/usr/bin/calculator
+Terminal=false
+Icon=/usr/share/calculator.ico
+Type=Application
+Categories=Application;
+Comment=DumdumCalculator
