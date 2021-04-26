@@ -8,7 +8,7 @@ APP_BIN = calculator
 
 #name of app and this version
 APP_NAME = dumdumCalc
-VERSION = 1.0.0
+VERSION = 1.0
 
 PROF_NAME = math_prof
 PROF_SAMPLE = profiling_sample
@@ -42,19 +42,25 @@ pack:
 	
 
 clean:
-	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)/usr/bin
+	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin
+	rm -f $(APP_NAME)-$(VERSION).deb
+	
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
 	./$(O_PATH)$(TEST_BIN)
 	
+	
 install: $(O_PATH)
 	cd $(O_PATH) && cmake ../$(GUI_DIR).
 	make -C $(O_PATH)
+	mkdir $(APP_NAME)-$(VERSION)/usr/bin
 	cp $(O_PATH)$(APP_BIN) $(APP_NAME)-$(VERSION)/usr/bin
 	dpkg-deb --build $(APP_NAME)-$(VERSION)
+	
 
 doc:
 	doxygen
+	
 
 run: $(O_PATH) $(O_PATH)$(APP_BIN)
 	./$(O_PATH)$(APP_BIN)
@@ -107,7 +113,7 @@ $(O_PATH)$(APP_BIN):
 
 #ALL obj files need math_lib header file
 $(O_PATH)%.o : %.cpp $(MATH_LIB_NAME).h
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
 
 $(O_PATH) : 
 	mkdir $@
