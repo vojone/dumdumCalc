@@ -30,7 +30,7 @@
 #define ERR_COLOR "red"
 
 
-#define NUM2QSTR(num) (QString().setNum(num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
+#define NUM2QSTR(num) (QString().setNum((double)num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
 
 
 /**
@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit->alignment();
     ui->textEdit->setFontPointSize(32);
     ui->textEdit->setReadOnly(true);
+    ui->textEdit->setWordWrapMode(QTextOption::NoWrap);
     currentOperation = None;
 
     connect(ui->menuMenu, SIGNAL(aboutToShow()), this, SLOT(show_help()));
@@ -74,6 +75,7 @@ void MainWindow::insert_to_screen(char digit){
     update_screen();
 }
 
+
 /**
  * @brief Overload which Edits the variable storing the operand value and updates the display
  * @param str QString which will be appended to the screen!
@@ -89,22 +91,35 @@ void MainWindow::insert_to_screen(QString str){
 }
 
 /**
+ * @brief putIntoBraces puts text into braces if it is in scientific notation
+ * @param operand text to be controlled
+ * @return original text if its not in scientific notation or in braces if it is
+ */
+QString MainWindow::putIntoBraces(QString operand) {
+    if(operand.indexOf("e") >= 0) {
+        operand = "("+operand+")";
+    }
+
+    return operand;
+}
+
+/**
  * @brief Updates the display content
  */
 void MainWindow::update_screen(){
     if(currentOperation != None){
         if(!resultShown) {
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+            ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
             if(currentOperation == Factorial) {
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
             else {
-                QString op2str = NUM2QSTR(operand2);
+                QString op2str = putIntoBraces(NUM2QSTR(operand2));
                 if(operand2 < 0)
                     op2str = "("+op2str+")";
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
         }
     }
@@ -119,17 +134,17 @@ void MainWindow::update_screen(){
 void MainWindow::update_screen(QString newContent){
     if(currentOperation != None){
         if(!resultShown) {
-            ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
+            ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "<h1 style='margin-top:-10px'>" + content + "</h1>");
         }
         else{
             if(currentOperation == Factorial) {
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
             else {
-                QString op2str = NUM2QSTR(operand2);
+                QString op2str = putIntoBraces(NUM2QSTR(operand2));
                 if(operand2 < 0)
                     op2str = "("+op2str+")";
-                ui->textEdit->setHtml(NUM2QSTR(operand1) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
+                ui->textEdit->setHtml(putIntoBraces(NUM2QSTR(operand1)) + currentOperationSymbol + op2str + "=<h1 style='margin-top:-10px'>" + content + "</h1>");
             }
         }
     }
@@ -277,7 +292,7 @@ void MainWindow::on_point_clicked()
  * @param customMsg custom message to be returned in msg parameter if there will be an error
  * @return results of calculation or zero
  */
-double tryCompute(double (*op)(double,double),
+long double tryCompute(long double (*op)(double,double),
                 double op1, double op2,
                 QString *msg, QString customMsg = QString()) {
 
@@ -304,7 +319,7 @@ double tryCompute(double (*op)(double,double),
  * @param customMsg custom message to be returned in msg parameter if there will be an error
  * @return results of calculation or zero (if there will be an error)
  */
-double tryCompute(double (*op)(double), double op1,
+long double tryCompute(long double (*op)(double), double op1,
                 QString *msg, QString customMsg = QString()) {
 
     double result = 0.0;
@@ -325,7 +340,7 @@ double tryCompute(double (*op)(double), double op1,
  * @brief Solves, whether is number +/- infinity
  * @param number result which represents infinity
  */
-void MainWindow::resIsInf(double number) {
+void MainWindow::resIsInf(long double number) {
     if(number < 0)
         content = "-Infinity";
     else
@@ -355,7 +370,7 @@ void MainWindow::on_result_clicked()
         return;
     }
     content = "";
-    double result = 0;
+    long double result = 0;
     switch (currentOperation) {
         case Addition:
             result = add(operand1, operand2);
@@ -374,7 +389,7 @@ void MainWindow::on_result_clicked()
             result = tryCompute(f_pow, operand1, operand2, &content);
             break;
         case Root:
-            result = tryCompute(root, operand1, operand2, &content);
+            result = tryCompute(root, operand2, operand1, &content);
             break;
         case Factorial:
             result = tryCompute(fact, operand1, &content);

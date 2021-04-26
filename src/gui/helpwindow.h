@@ -26,6 +26,10 @@ namespace Ui {
 class HelpWindow;
 }
 
+/**
+ * @brief Window with brief help in app
+ * @param parent parent element of created window with help
+ */
 class HelpWindow : public QDialog
 {
     Q_OBJECT
@@ -33,6 +37,9 @@ class HelpWindow : public QDialog
 public:
     explicit HelpWindow(QWidget *parent = nullptr);
     ~HelpWindow();
+
+private slots:
+    void on_textBrowser_2_anchorClicked(const QUrl &arg1);
 
 private:
     Ui::HelpWindow *ui;

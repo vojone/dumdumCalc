@@ -130,18 +130,18 @@ long double f_pow(const double base, const double exp) {
  * @return root of radicant to the degree
  */
 long double root(const double radicant, const double degree) {
-	if(exp <= 0 ||(radicant < 0 && fmod(degree, 2) == 0)) {
-		throw std::runtime_error("Error, Only Positive Numbers");
-	}
-	else if(fmod(degree, 1) != 0.0) {
+    if(fmod(degree, 1) != 0.0) {
 		throw std::runtime_error("Error, Only Integers");
 	}
+    else if(degree <= 0 || (radicant < 0 && ((int)degree % 2 == 0))) {
+        throw std::runtime_error("Error, Only Positive Numbers");
+    }
 	
 	else {
 		double deg_dbl = degree;
 		
-		if(base < 0 && fmod(degree, 2) == 1){
-			return -pow(-radicant, 1/deg_dbl);
+        if(radicant < 0 && ((int)degree % 2 == 1)){
+            return -pow(-radicant, 1/deg_dbl);
 		}
 		else {
 			return pow(radicant, 1/deg_dbl);
