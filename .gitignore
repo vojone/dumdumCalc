@@ -11,6 +11,8 @@ src/build/
 !profiling/*.out
 !profiling/*.pdf
 
+src/xmarek77_xdvora3o_xdvora3r_xdedic07.zip
+
 *.deb
 calculator
 

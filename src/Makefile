@@ -1,8 +1,3 @@
-#names of src files
-MATH_LIB_NAME = math_lib
-
-TEST_BIN = tdd_math
-
 #name of app library
 APP_BIN = calculator
 
@@ -10,13 +5,22 @@ APP_BIN = calculator
 APP_NAME = dumdumCalc
 VERSION = 1.0
 
+#the name of final archive
+AR_NAME = xmarek77_xdvora3o_xdvora3r_xdedic07
+
+#names of src files for tests math library and profiling
+MATH_LIB_NAME = math_lib
+
+TEST_BIN = tdd_math
+
 PROF_NAME = math_prof
 PROF_SAMPLE = profiling_sample
 
 #name of folder in which is gui implementation
 GUI_DIR = gui/
 
-DOC_DIR = Documentation
+#folder in which is generated documentation
+DOC_DIR = Documentation/
 
 #output path
 O_PATH = build/
@@ -35,11 +39,22 @@ LDLIBS=-lm
 CMAKEFLAGS :=
 
 .PHONY: all pack clean test doc run profile install callgrind debug
-all:
 
-
-pack:
+all: $(O_PATH) $(O_PATH)$(TEST_BIN) $(O_PATH)$(PROF_NAME) $(O_PATH)$(APP_BIN)
 	
+#Archive is created in output dir!!!	
+pack: clean doc install
+	mkdir -p ../repo
+	mkdir -p ../doc
+	mkdir -p ../install
+	cp -r $(DOC_DIR)html/* ../doc
+	cp $(APP_NAME)-$(VERSION).deb ../install
+	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin 
+	rm -f $(APP_NAME)-$(VERSION).deb
+	cd .. && cp -r `ls | egrep -v '^repo|doc|install$$'` repo
+	cd .. && zip -r $(AR_NAME).zip repo install doc
+	cd .. && mv  $(AR_NAME).zip src/$(AR_NAME).zip
+	cd .. && rm -rf repo install doc
 
 clean:
 	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin
@@ -53,7 +68,7 @@ test: $(O_PATH) $(O_PATH)$(TEST_BIN)
 install: $(O_PATH)
 	cd $(O_PATH) && cmake ../$(GUI_DIR).
 	make -C $(O_PATH)
-	mkdir $(APP_NAME)-$(VERSION)/usr/bin
+	mkdir -p $(APP_NAME)-$(VERSION)/usr/bin
 	cp $(O_PATH)$(APP_BIN) $(APP_NAME)-$(VERSION)/usr/bin
 	dpkg-deb --build $(APP_NAME)-$(VERSION)
 	
@@ -113,6 +128,7 @@ $(O_PATH)$(APP_BIN):
 
 #ALL obj files need math_lib header file
 $(O_PATH)%.o : %.cpp $(MATH_LIB_NAME).h
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 
 $(O_PATH) : 
