@@ -3,6 +3,7 @@ Prostredi
 
 Ubuntu 64bit
 
+
 Autori
 ------
 
@@ -11,6 +12,7 @@ dumdum
 - xdvora3o Vojtech Dvorak 
 - xdvora3r Tomas Dvorak 
 - xdedic07 Juraj Dedic 
+
 
 Licence
 -------

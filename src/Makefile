@@ -58,7 +58,7 @@ pack: clean doc install
 	cp $(APP_NAME)-$(VERSION).deb ../install
 	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin 
 	rm -f $(APP_NAME)-$(VERSION).deb
-	cd .. && cp -r `ls | egrep -v '^repo|doc|install$$'` repo
+	cd .. && cp -r `ls -a | egrep -v '^repo|doc|install|\.\.|\.$$'` repo
 	cd .. && zip -r $(AR_NAME).zip repo install doc
 	mv  ../$(AR_NAME).zip $(AR_NAME).zip
 	cd .. && rm -rf repo install doc
