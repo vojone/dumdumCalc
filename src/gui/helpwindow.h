@@ -38,6 +38,9 @@ public:
     explicit HelpWindow(QWidget *parent = nullptr);
     ~HelpWindow();
 
+private slots:
+    void on_textBrowser_2_anchorClicked(const QUrl &arg1);
+
 private:
     Ui::HelpWindow *ui;
 };

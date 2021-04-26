@@ -25,6 +25,11 @@ GUI_SRCS := $(GUI_SRCS) $(wildcard $(GUI_DIR)*.h)
 #folder in which is generated documentation
 DOC_DIR = Documentation/
 
+#original name of user manual in PDF
+ORIG_MAN = dokumentace
+#name of user manual, which will be included to deb. pckg
+MAN_NAME = calculator_man
+
 #output path
 O_PATH = build/
 
@@ -59,7 +64,8 @@ pack: clean doc install
 	cd .. && rm -rf repo install doc
 
 clean:
-	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin
+	rm -rf $(O_PATH) $(DOC_DIR)
+	rm -rf $(APP_NAME)-$(VERSION)/usr/bin $(APP_NAME)-$(VERSION)/share/doc
 	rm -f $(APP_NAME)-$(VERSION).deb $(AR_NAME).zip
 	
 
@@ -71,7 +77,9 @@ install: $(O_PATH)
 	cd $(O_PATH) && cmake ../$(GUI_DIR).
 	make -C $(O_PATH)
 	mkdir -p $(APP_NAME)-$(VERSION)/usr/bin
+	mkdir -p $(APP_NAME)-$(VERSION)/usr/share/doc
 	cp $(O_PATH)$(APP_BIN) $(APP_NAME)-$(VERSION)/usr/bin
+	cp ../$(ORIG_MAN).pdf $(APP_NAME)-$(VERSION)/usr/share/doc/$(MAN_NAME).pdf
 	dpkg-deb --build $(APP_NAME)-$(VERSION)
 	
 
