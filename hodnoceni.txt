@@ -1,0 +1,4 @@
+xmarek77 100 (Vedení, instalátor, uživatelská dokumentace)
+xdvora3o 100 (testy mat. knihovny, profiling, úpravy gui)
+xdedic07 100 (základ gui, mockup nové verze)
+xdvora3r 100 (matematická knihovna, programová dokumentace)

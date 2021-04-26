@@ -1,0 +1,17 @@
+1. Nepodařilo se nám dodržet stanovené termíny (byly nerealistické).
+
+2. Podcenili jsme tvorbu instalátoru. 
+Původně jsme zamýšleli k tomuto účelu použít CPack. Nepodařilo se však s ním dosáhnout uspokojivého
+výsledku, takže jsme museli instalátor vytvořit pomocí dpkg-deb. Obecně jsme předpokládali, že tvorba
+instalátoru nebude složitá, takže jsme ji nepřipisovali příliš velký význam. Ukázalo se však, že to
+tak jednoduché není.
+
+3. Nepodařilo se nám dodržet rozdělení jednotlivých úkolů.
+Kvůli nedostatku zkušeností (ve fázi plánování)
+jsme nemohli přesně odhadnout jejich náročnost, takže jsme si museli nějaké úkoly ještě rozdělovat
+i v dalších fázích vývoje, příp. přerozdělovat stávající.
+
+4. Původně jsme plánovali implementovat funkci "absolutní hodnota". 
+Ta by ale neměla na kalkulačce s jednou operací velký smysl. Nakonec jsme ji tedy nahradili 
+funkcí "change sign", která umožňuje pohodlně měnit znaménko a jako libovolnou další funkci jsme
+implementovali modulo, které nám na konvečních kalkulačkách scházelo.

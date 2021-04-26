@@ -45,7 +45,7 @@ CXXFLAGS := -Werror -Wall -pedantic -std=c++11
 CC = g++
 LDLIBS=-lm
 
-CMAKEFLAGS :=
+#CMAKEFLAGS :=
 
 .PHONY: all pack clean test doc run profile install callgrind debug
 
@@ -65,14 +65,10 @@ pack: clean doc install
 	cd .. && rm -rf repo install doc
 
 clean:
-<<<<<<< HEAD
-	rm -rf $(O_PATH) $(DOC_DIR) dumdumCalc.deb dumdumCalc/usr/bin/calculator gui/calculator gui/calculator_autogen gui/CMakeCache.txt gui/CMakeFiles gui/cmake_install.cmake
-=======
 	rm -rf $(O_PATH) $(DOC_DIR)
 	rm -rf $(APP_NAME)-$(VERSION)/usr/bin $(APP_NAME)-$(VERSION)/share/doc
 	rm -f $(APP_NAME)-$(VERSION).deb $(AR_NAME).zip
 	
->>>>>>> 9765e9f8a0a780ace814ed7025624de8d748bc18
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
 	./$(O_PATH)$(TEST_BIN)

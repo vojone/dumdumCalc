@@ -5,6 +5,7 @@ src/build/
 *.o
 
 *.pdf
+!dokumentace.pdf
 
 *.out
 

@@ -1,0 +1,41 @@
+Termíny
+-------
+13. 3. - Testy
+31. 3. - GUI
+7. 4. - Integrace, Instalátor, Profiling
+29. 4. - Odevzdání
+
+
+Přidělení úkolů
+---------------
+Leader - xmarek77 (Marek Radek)
+Založení repozitáře - xdvora3o (Vojtěch Dvořák)
+Testy (TDD) - xdvora3o (Vojtěch Dvořák), (záloha: xdvora3r)
+Integrace - xdvora3o (Vojtěch Dvořák), (záloha: xdvora3r)
+Matematická knihovna - xdvora3r (Tomáš Dvořák), (záloha: xdvora3o)
+Profiling – xdvora3r (Tomáš Dvořák), (záloha: xdvora3o)
+GUI – xdedic07 (Juraj Dědič), (záloha: xmarek77)
+Makefile - xmarek77 (Marek Radek), (záloha: xdedic07)
+Instalátor - xmarek77 (Marek Radek), (záloha: xdedic07)
+Dokumentace - xmarek77 (Marek Radek), (záloha: xdedic07)
+
+
+Zvolené komunikační kanály
+--------------------------
+Discord 
+
+
+Pravidla pro komunikaci
+-----------------------
+Kontrola minimálně jednou za pracovní den 
++ každou sobotu krátký hovor
+
+
+Systém pro správu verzí
+-----------------------
+GIT
+
+
+Hosting
+-------
+ivs.fit.vutbr.cz
