@@ -27,7 +27,8 @@ class HelpWindow;
 }
 
 /**
- * @brief The HelpWindow class with help information
+ * @brief Window with brief help in app
+ * @param parent parent element of created window with help
  */
 class HelpWindow : public QDialog
 {

@@ -19,6 +19,10 @@
 #include "helpwindow.h"
 #include "ui_helpwindow.h"
 
+/**
+ * @brief HelpWindow ctor
+ * @param parent parent element of created window with help
+ */
 HelpWindow::HelpWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HelpWindow)
@@ -26,6 +30,9 @@ HelpWindow::HelpWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/**
+ * @brief HelpWindow dtor
+ */
 HelpWindow::~HelpWindow()
 {
     delete ui;

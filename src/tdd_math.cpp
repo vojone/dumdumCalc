@@ -21,7 +21,8 @@
 #include <cmath>
 
 /**
- * A set of testing values (small positive doubles) 
+ * @class smallPositiveDoubles set of testing values (small positive doubles)
+ * @brief set of testing values for math_lib TDD tests
  */
 class smallPositiveDoubles : public ::testing::Test {
   protected:
@@ -39,7 +40,8 @@ class smallPositiveDoubles : public ::testing::Test {
 };
 
 /**
- * A set of testing values (mix of doubles) 
+ * @class allDoubles set of testing values (mix of doubles)
+ * @brief set of testing values for math_lib TDD tests
  */
 class allDoubles : public ::testing::Test {
   protected:
