@@ -19,6 +19,9 @@ PROF_SAMPLE = profiling_sample
 #name of folder in which is gui implementation
 GUI_DIR = gui/
 
+GUI_SRCS := $(wildcard $(GUI_DIR)*.cpp) $(wildcard $(GUI_DIR)*.ui)
+GUI_SRCS := $(GUI_SRCS) $(wildcard $(GUI_DIR)*.h)
+
 #folder in which is generated documentation
 DOC_DIR = Documentation/
 
@@ -41,8 +44,7 @@ CMAKEFLAGS :=
 .PHONY: all pack clean test doc run profile install callgrind debug
 
 all: $(O_PATH) $(O_PATH)$(TEST_BIN) $(O_PATH)$(PROF_NAME) $(O_PATH)$(APP_BIN)
-	
-#Archive is created in output dir!!!	
+		
 pack: clean doc install
 	mkdir -p ../repo
 	mkdir -p ../doc
@@ -53,12 +55,12 @@ pack: clean doc install
 	rm -f $(APP_NAME)-$(VERSION).deb
 	cd .. && cp -r `ls | egrep -v '^repo|doc|install$$'` repo
 	cd .. && zip -r $(AR_NAME).zip repo install doc
-	cd .. && mv  $(AR_NAME).zip src/$(AR_NAME).zip
+	mv  ../$(AR_NAME).zip $(AR_NAME).zip
 	cd .. && rm -rf repo install doc
 
 clean:
 	rm -rf $(O_PATH) $(DOC_DIR) $(APP_NAME)-$(VERSION)/usr/bin
-	rm -f $(APP_NAME)-$(VERSION).deb
+	rm -f $(APP_NAME)-$(VERSION).deb $(AR_NAME).zip
 	
 
 test: $(O_PATH) $(O_PATH)$(TEST_BIN) 
@@ -120,7 +122,7 @@ $(TEST_DIR)lib/%.a :
 	
 #--------------------------------APP BUILD------------------------------------
 
-$(O_PATH)$(APP_BIN):
+$(O_PATH)$(APP_BIN): $(GUI_SRCS)
 	cd $(O_PATH) && cmake $(CMAKEFLAGS) ../$(GUI_DIR). 
 	cd $(O_PATH) && make -s
 
