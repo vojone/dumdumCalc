@@ -16,6 +16,9 @@
  * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic
  */
 
+
+#define ICON_PATH "/usr/share/icons/dumdumcalc_small.png" /**< Path to icon when is app installed*/
+
 #include "mainwindow.h"
 
 #include <QApplication>
@@ -24,6 +27,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
+    w.setWindowIcon(QIcon(ICON_PATH));
     w.show();
     return a.exec();
 }

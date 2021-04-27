@@ -25,9 +25,9 @@
 #include <QMessageBox>
 #include <QClipboard>
 
-#define SHOW_NUM 12
-#define INF_COLOR "blue"
-#define ERR_COLOR "red"
+#define SHOW_NUM 12 /**< Number of valid numbers to be seen in normal format */
+#define INF_COLOR "blue" /**< Color of "Infinity" message (must be compatible with html) */
+#define ERR_COLOR "red" /**< Color of error messages (must be compatible with html) */
 
 
 #define NUM2QSTR(num) (QString().setNum((double)num, 'g', SHOW_NUM)) /**< Converts num (int/double/float...) to QString */
