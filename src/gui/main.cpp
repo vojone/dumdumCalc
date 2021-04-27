@@ -17,7 +17,7 @@
  */
 
 
-#define ICON_PATH "/usr/share/icons/dumdumcalc_small.png" /**< Path to icon when is app installed*/
+#define ICON_PATH "/usr/share/icons/dumdumcalc_small.png" /**< Path to icon (when is app installed) */
 
 #include "mainwindow.h"
 

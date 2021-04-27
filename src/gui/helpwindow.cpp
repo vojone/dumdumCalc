@@ -20,6 +20,8 @@
 #include "ui_helpwindow.h"
 #include <QDesktopServices>
 #include <QMessageBox>
+#include <QUrl>
+#include <QFileInfo>
 
 /**
  * @brief HelpWindow ctor
@@ -46,13 +48,17 @@ HelpWindow::~HelpWindow()
  */
 void HelpWindow::on_textBrowser_2_anchorClicked(const QUrl &arg1)
 {
-    if(!arg1.isLocalFile() && !arg1.toString().contains(QRegExp("https://|http://|www|@"))) {
+    if(arg1.isLocalFile() && QFileInfo::exists(arg1.toLocalFile())) {
+        QDesktopServices::openUrl(arg1);
+    }
+    else if(arg1.toString().contains(QRegExp("https://|http://|www|@"))) {
+        QDesktopServices::openUrl(arg1);
+    }
+    else {
         QString message = "Sorry, but we can't open hyperlink...\n";
         message.append("Maybe calculator it's not installed properly.\n");
         message.append("You can also try to manually find:\n" + arg1.toString());
         QMessageBox::warning(this, "Can't open link", message);
     }
-    else {
-        QDesktopServices::openUrl(arg1);
-    }
+
 }
