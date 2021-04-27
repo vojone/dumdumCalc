@@ -11,17 +11,16 @@ Pre-Depends: libqt5gui5
 Build-Depends: libqt5gui5
 Description: Calculator
  IVS project 2 calculator by team dumdum. Calculator provides a lot of
- mathematical operations (e.g. addition, subtraction, multiplication,
+ basic operations (e.g. addition, subtraction, multiplication,
  factorial...).
  .
- After installation you should be able to to execute the up by clicking
- on it in Applications or by writing calculator into terminal.
+ After installation you should be able to execute the ap by clicking
+ on it in Applications or by typing 'calculator' in terminal.
  .
- If you want to see user manual content, press F1 in app and the
- help window with brief information should occured.
- For full user manual click to url in helpwindow or, if there is
- something abnormal, the user manual should be installed (after
- installation to /usr/share/doc/calculator_man.pdf.
+ If you want to see user manual, press F1 in app and the
+ help window with brief information will apear.
+ For full user manual click on the url in helpwindow or see user manual
+ the user manual should be installed in /usr/share/doc/calculator_man.pdf.
  .
  This software is provided under GPLv3 licence.
  (For more information about it see www.gnu.org/license/gpl-3.0.html)
