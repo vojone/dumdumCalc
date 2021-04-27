@@ -6,6 +6,8 @@ Architecture: all
 Essential: no
 Installed-Size: 1024
 Maintainer: dumdum
+Depends: libqt5gui5
+Pre-Depends: libqt5gui5
 Build-Depends: libqt5gui5
 Description: Calculator
  IVS project 2 calculator by team dumdum. Calculator provides a lot of
