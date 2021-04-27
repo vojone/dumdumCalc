@@ -46,7 +46,7 @@ HelpWindow::~HelpWindow()
  */
 void HelpWindow::on_textBrowser_2_anchorClicked(const QUrl &arg1)
 {
-    if(!arg1.isLocalFile()) {
+    if(!arg1.isLocalFile() && !arg1.toString().contains(QRegExp("https://|http://|www|@"))) {
         QString message = "Sorry, but we can't open hyperlink...\n";
         message.append("Maybe calculator it's not installed properly.\n");
         message.append("You can also try to manually find:\n" + arg1.toString());
