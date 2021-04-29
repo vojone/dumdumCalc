@@ -1,6 +1,6 @@
 /******************************************************************************
  *                            dumdumCalculator       
- *                             math_prof.cpp
+ *                              stddev.cpp
  * 
  *       Purpose: Implementation of mathematical library used in calculator
  * 
@@ -10,7 +10,7 @@
  * ***************************************************************************/
 
 /**
- * @file math_prof.cpp
+ * @file stddev.cpp
  * 
  * @brief Source file for math library profiling
  * @authors Radek Marek, Vojtech Dvorak, Tomas Dvorak, Juraj Dedic

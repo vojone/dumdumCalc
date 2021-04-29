@@ -13,7 +13,8 @@ MATH_LIB_NAME = math_lib
 
 TEST_BIN = tdd_math
 
-PROF_NAME = math_prof
+#name of profiling program
+PROF_NAME = stddev
 PROF_SAMPLE = profiling_sample
 
 #name of folder in which is gui implementation
