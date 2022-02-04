@@ -1,10 +1,19 @@
-Prostredi
+About
+-----
+
+School project to Practical Aspects of SW Development (IVS) subject at VUT FIT. Main goal of this projects was to learn basics of teamwork, how to use various tools (make, googletests, gdb...) and learn basics of GIT.
+
+Final evaluation:
+51/52 
+
+
+Enviroment
 ---------
 
 Ubuntu 64bit
 
 
-Autori
+Authors
 ------
 
 dumdum
@@ -14,7 +23,7 @@ dumdum
 - xdedic07 Juraj Dedic 
 
 
-Licence
+License
 -------
 
-Tento program je poskytovan s otevrenymi zdrojovymi texty pod licenci GNU GPLv3.
+GNU GPLv3.
