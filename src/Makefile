@@ -37,7 +37,7 @@ O_PATH = build/
 
 #testing framework path
 TESTLIB_NAME = libgtest
-TEST_DIR = googletest-master/googletest/
+TEST_DIR = googletest/googletest/
 
 #compiler settings
 CXX = g++
@@ -128,8 +128,11 @@ $(O_PATH)$(TEST_BIN).o : $(TEST_BIN).cpp $(TEST_DIR)lib/$(TESTLIB_NAME).a
 
 #compilation of the lib (.a) with google test (if it is not compilated)
 #cmake is used (due to instructions in googlest-master/googletest/README.md)
-$(TEST_DIR)lib/%.a :
+$(TEST_DIR)lib/%.a : $(TEST_DIR)
 	cd $(TEST_DIR) && cmake .. && make -s
+
+$(TEST_DIR) : 
+	git clone https://github.com/google/googletest.git
 	
 #--------------------------------APP BUILD------------------------------------
 

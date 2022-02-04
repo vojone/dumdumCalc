@@ -1,6 +1,8 @@
 #ignore everything in build folder
 src/build/
 
+src/googletest/
+
 #ignore .o files
 *.o
 
